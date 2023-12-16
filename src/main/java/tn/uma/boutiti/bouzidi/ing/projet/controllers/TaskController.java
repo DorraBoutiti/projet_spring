@@ -5,12 +5,16 @@ import org.springframework.web.bind.annotation.*;
 
 import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.exceptions.ProjectNotFoundException;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Label;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Task;
 import tn.uma.boutiti.bouzidi.ing.projet.services.LabelService;
+import tn.uma.boutiti.bouzidi.ing.projet.services.ProjectService;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/tasks")
@@ -18,24 +22,38 @@ public class TaskController {
 
     private final TaskService taskService;
     private final LabelService labelService; 
+    private final ProjectService projectService;
 
-    @Autowired
-    public TaskController(TaskService taskService, LabelService labelService) {
-        this.taskService = taskService;
-        this.labelService = labelService;
+   @Autowired
+   public TaskController(TaskService taskService, LabelService labelService, ProjectService projectService) {
+       this.taskService = taskService;
+       this.labelService = labelService;
+       this.projectService = projectService;
     }
 
-    // Créer une tâche avec des labels
+    
     @PostMapping("/create")
     public Task createTask(@RequestBody TaskDTO taskDTO) {
-        Task newTask = new Task(taskDTO.getTitle(), taskDTO.getDescription(), taskDTO.getDueDate(), taskDTO.isCompleted());
+        Optional<Project> optionalProject = projectService.getProjectById(taskDTO.getProjectId());
 
-        // Récupération des labels depuis les IDs fournis dans le DTO
-        List<Label> labels = labelService.findLabelsByIds(taskDTO.getLabelIds());
-        newTask.setLabels(new HashSet<>(labels));
+        if (optionalProject.isPresent()) {
+            Project project = optionalProject.get();
 
-        return taskService.createTask(newTask);
+            Task newTask = new Task();
+            newTask.setTitle(taskDTO.getTitle());
+            newTask.setDescription(taskDTO.getDescription());
+            newTask.setDueDate(taskDTO.getDueDate());
+            newTask.setCompleted(taskDTO.isCompleted());
+            newTask.setProject(project); 
+
+            List<Label> labels = labelService.findLabelsByIds(taskDTO.getLabelIds());
+            newTask.setLabels(new HashSet<>(labels));
+
+            return taskService.createTask(newTask);
+        } else {            
+            throw new ProjectNotFoundException("Project with ID " + taskDTO.getProjectId() + " not found");
+        }
     }
-    //Afficher la liste des tâches à accomplir.
+
 
 }

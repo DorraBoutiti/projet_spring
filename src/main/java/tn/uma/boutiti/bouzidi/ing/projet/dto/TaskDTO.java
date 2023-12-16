@@ -8,6 +8,7 @@ public class TaskDTO {
     private LocalDate dueDate;
     private boolean completed;
     private List<Long> labelIds; // Liste d'IDs des labels à associer à la tâche
+    private Long projectId;
 
    
     public TaskDTO(String title, String description, LocalDate dueDate, boolean completed, List<Long> labelIds) {
@@ -60,4 +61,8 @@ public class TaskDTO {
     public void setLabelIds(List<Long> labelIds) {
         this.labelIds = labelIds;
     }
+    public Long getProjectId() {
+        return projectId;
+    }
+
 }
