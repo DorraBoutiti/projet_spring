@@ -7,7 +7,7 @@ public class TaskDTO {
     private String description;
     private LocalDate dueDate;
     private boolean completed;
-    private List<Long> labelIds; // Liste d'IDs des labels à associer à la tâche
+    private List<Long> labelIds; 
     private Long projectId;
 
    

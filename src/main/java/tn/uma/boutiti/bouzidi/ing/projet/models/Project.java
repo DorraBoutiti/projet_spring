@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,13 +29,9 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private Set<Task> tasks = new HashSet<>();
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_project",
-            joinColumns = @JoinColumn(name = "project_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private Set<User> users = new HashSet<>();
+    @ManyToOne
+    private Member member;
+
     
    
 }

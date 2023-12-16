@@ -14,6 +14,4 @@ import tn.uma.boutiti.bouzidi.ing.projet.models.Task;
 public interface TaskRepository extends JpaRepository<Task, Long> {
     List<Task> findByTitleContaining(String keyword);
     
-    @Query("SELECT t FROM Task t WHERE t.dueDate < :date")
-    List<Task> findTasksDueBeforeDate(@Param("date") LocalDate date);
 }
