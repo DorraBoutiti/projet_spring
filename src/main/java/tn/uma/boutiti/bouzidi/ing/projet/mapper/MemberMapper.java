@@ -12,8 +12,7 @@ public class MemberMapper {
         MemberDTO memberDTO = new MemberDTO();
         memberDTO.setId(member.getId());
         memberDTO.setUsername(member.getUsername());
-        // Set project IDs if needed
-        
+               
         return memberDTO;
     }
 
@@ -21,8 +20,7 @@ public class MemberMapper {
         Member member = new Member();
         member.setId(memberDTO.getId());
         member.setUsername(memberDTO.getUsername());
-        // Mapping of IDs to entities for projects needs additional logic
-        
+     
         return member;
     }
 }

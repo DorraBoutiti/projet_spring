@@ -12,6 +12,5 @@ import lombok.NoArgsConstructor;
 public class MemberDTO {
     private Long id;
     private String username;
-    // Avoid exposing password in DTO for security reasons
     private Set<Long> projectIds;
 }

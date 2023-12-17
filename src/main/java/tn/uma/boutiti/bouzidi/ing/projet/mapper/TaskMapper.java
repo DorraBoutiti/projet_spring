@@ -15,7 +15,7 @@ public class TaskMapper {
         taskDTO.setDescription(task.getDescription());
         taskDTO.setDueDate(task.getDueDate());
         taskDTO.setCompleted(task.isCompleted());
-        // Set label IDs and project ID if needed
+        
         
         return taskDTO;
     }
@@ -27,7 +27,7 @@ public class TaskMapper {
         task.setDescription(taskDTO.getDescription());
         task.setDueDate(taskDTO.getDueDate());
         task.setCompleted(taskDTO.isCompleted());
-        // Mapping of IDs to entities for labels and project needs additional logic
+       
         
         return task;
     }

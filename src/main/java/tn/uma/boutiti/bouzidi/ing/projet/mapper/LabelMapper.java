@@ -10,9 +10,7 @@ public class LabelMapper {
     public LabelDTO toLabelDTO(Label label) {
         LabelDTO labelDTO = new LabelDTO();
         labelDTO.setId(label.getId());
-        labelDTO.setName(label.getName());
-        // Set task IDs if needed
-        
+        labelDTO.setName(label.getName());               
         return labelDTO;
     }
 
@@ -20,8 +18,7 @@ public class LabelMapper {
         Label label = new Label();
         label.setId(labelDTO.getId());
         label.setName(labelDTO.getName());
-        // Mapping of IDs to entities for tasks needs additional logic
-        
+               
         return label;
     }
 }

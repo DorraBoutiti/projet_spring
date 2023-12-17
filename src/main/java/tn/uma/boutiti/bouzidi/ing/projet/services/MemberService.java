@@ -33,6 +33,7 @@ public class MemberService {
     	Member member = new Member();
     	member.setUsername(username);
     	member.setPassword(password);
+    	memberRepository.save(member);
     	return member;
     }
 
@@ -57,20 +58,16 @@ public class MemberService {
     
     @Transactional
     public void assignProjectToMember(Long memberId, Long projectId) {
-        // Fetch Member and Project entities from the database
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new EntityNotFoundException("Member not found with id: " + memberId));
 
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() -> new EntityNotFoundException("Project not found with id: " + projectId));
 
-        // Adding the Project to the Member's projects
         member.getProjects().add(project);
 
-        // Adding the Member to the Project's members
         project.getMembers().add(member);
 
-        // Save/update the entities
         memberRepository.save(member);
         projectRepository.save(project);
     }

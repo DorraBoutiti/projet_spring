@@ -12,8 +12,7 @@ public class ProjectMapper {
         ProjectDTO projectDTO = new ProjectDTO();
         projectDTO.setId(project.getId());
         projectDTO.setName(project.getName());
-        // Set task IDs and member IDs if needed
-        
+               
         return projectDTO;
     }
 
@@ -21,7 +20,7 @@ public class ProjectMapper {
         Project project = new Project();
         project.setId(projectDTO.getId());
         project.setName(projectDTO.getName());
-        // Mapping of IDs to entities for tasks and members needs additional logic
+       
         
         return project;
     }
