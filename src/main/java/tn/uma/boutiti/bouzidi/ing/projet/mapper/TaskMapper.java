@@ -1,7 +1,11 @@
 package tn.uma.boutiti.bouzidi.ing.projet.mapper;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Component;
 
+import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Task;
 
@@ -30,5 +34,22 @@ public class TaskMapper {
        
         
         return task;
+    }
+    public TaskDTO toTaskDTOWithLabels(Task task, Set<LabelDTO> labels) {
+        // Map labels to their respective IDs
+        Set<Long> labelIds = labels.stream()
+                .map(LabelDTO::getId)
+                .collect(Collectors.toSet());
+
+        // Map Task to TaskDTO including label IDs
+        return new TaskDTO(
+                task.getId(),
+                task.getTitle(),
+                task.getDescription(),
+                task.getDueDate(),
+                task.isCompleted(),
+                labelIds, 
+                task.getProject().getId() 
+        );
     }
 }

@@ -61,7 +61,9 @@ public class MemberController {
             @PathVariable Long projectId
     ) {
         try {
+        	System.out.println(1);
             memberService.assignProjectToMember(memberId, projectId);
+            System.out.println(9);
             return ResponseEntity.ok("Project assigned to member successfully");
         } catch (EntityNotFoundException e) {
             return ResponseEntity.notFound().build();
