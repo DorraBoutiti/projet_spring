@@ -24,6 +24,6 @@ public class Member {
     
     private String username;
     private String password;
-    @OneToMany(mappedBy = "member") // Assuming "member" is the field in Project referring to Member
-    private List<Project> projects;
+    @ManyToMany(mappedBy = "members")
+    private Set<Project> projects = new HashSet<>();
 }
