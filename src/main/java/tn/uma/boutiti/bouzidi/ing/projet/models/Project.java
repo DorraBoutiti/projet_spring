@@ -30,10 +30,10 @@ public class Project {
 
     @ManyToMany
     @JoinTable(
-        name = "project_members",
+        name = "project_member",
         joinColumns = @JoinColumn(name = "project_id"),
         inverseJoinColumns = @JoinColumn(name = "member_id")
     )
-    private Set<Member> members = new HashSet<>();
+    private Set<Member> members;
     
 }

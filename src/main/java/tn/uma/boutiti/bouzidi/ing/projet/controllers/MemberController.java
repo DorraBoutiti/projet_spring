@@ -66,10 +66,14 @@ public class MemberController {
             System.out.println(9);
             return ResponseEntity.ok("Project assigned to member successfully");
         } catch (EntityNotFoundException e) {
-            return ResponseEntity.notFound().build();
+        	System.out.println(10);
+        	return null;
+            //return ResponseEntity.notFound().build();
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Failed to assign project to member");
+        	System.out.println(11);
+        	return null;
+            //return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                   // .body("Failed to assign project to member");
         }
     }
 }
