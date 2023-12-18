@@ -1,26 +1,15 @@
 package tn.uma.boutiti.bouzidi.ing.projet.mapper;
 
-import org.springframework.stereotype.Component;
-
+import org.mapstruct.Mapper;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.MemberDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
 
-@Component
-public class MemberMapper {
+@Mapper(componentModel = "spring", uses = {ProjectMapper.class})
+public interface MemberMapper extends EntityMapper<MemberDTO, Member>{
 
-    public MemberDTO toMemberDTO(Member member) {
-        MemberDTO memberDTO = new MemberDTO();
-        memberDTO.setId(member.getId());
-        memberDTO.setUsername(member.getUsername());
-               
-        return memberDTO;
-    }
+    MemberDTO toDto(Member member);
 
-    public Member toMember(MemberDTO memberDTO) {
-        Member member = new Member();
-        member.setId(memberDTO.getId());
-        member.setUsername(memberDTO.getUsername());
-     
-        return member;
-    }
+    Member toEntity(MemberDTO memberDTO);
+
+
 }

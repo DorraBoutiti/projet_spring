@@ -20,19 +20,19 @@ public class TaskDisplayService {
 
     private final TaskRepository taskRepository;
     private final TaskMapper taskMapper;
-    private final LabelMapper labelMapper;
+  //  private final LabelMapper labelMapper;
 
     public TaskDisplayService(TaskRepository taskRepository, TaskMapper taskMapper, LabelMapper labelMapper) {
         this.taskRepository = taskRepository;
         this.taskMapper = taskMapper;
-        this.labelMapper = labelMapper;
+    //    this.labelMapper = labelMapper;
     }
 
     //public TaskDTO getTaskWithLabels(Long taskId) {
     //    Task task = taskRepository.findById(taskId).orElseThrow(() -> new EntityNotFoundException("Task not found"));
     //    return taskMapper.toTaskDTO(task);
     //}
-    public TaskDTO getTaskWithLabels(Long taskId) {
+   /* public TaskDTO getTaskWithLabels(Long taskId) {
         Task task = taskRepository.findById(taskId)
                 .orElseThrow(() -> new EntityNotFoundException("Task not found"));
 
@@ -44,5 +44,5 @@ public class TaskDisplayService {
 
         // Map Task to TaskDTO including labels
         return taskMapper.toTaskDTOWithLabels(task, labelDTOs);
-    }
+    }*/
 }

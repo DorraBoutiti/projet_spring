@@ -3,14 +3,10 @@ package tn.uma.boutiti.bouzidi.ing.projet.models;
 
 import java.time.LocalDate;
 import java.util.List;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,11 +22,12 @@ public class Task {
     
     private String title;
     private String description;
+    private LocalDate startDate;
     private LocalDate dueDate;
     private boolean completed;
     
     
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
     		name = "task_labels",
     		joinColumns = @JoinColumn(name = "task_id"),
@@ -42,8 +39,6 @@ public class Task {
     @JoinColumn(name = "project_id")
     private Project project;
     
-    public void SetCProject(Project p) {
-    	this.project = p;
-    }
+
     
 }

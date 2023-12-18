@@ -15,8 +15,10 @@ public class TaskDTO {
     private Long id;
     private String title;
     private String description;
+    private LocalDate startDate;
     private LocalDate dueDate;
     private boolean completed;
-    private Set<Long> labelIds;
+    private List<LabelDTO> labels;
     private Long projectId;
+    private String projectName;
 }

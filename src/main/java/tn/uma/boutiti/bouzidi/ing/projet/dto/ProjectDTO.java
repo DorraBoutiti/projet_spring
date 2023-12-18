@@ -1,10 +1,12 @@
 package tn.uma.boutiti.bouzidi.ing.projet.dto;
 
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -12,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class ProjectDTO {
     private Long id;
     private String name;
-    private Set<Long> taskIds;
-    private Set<Long> memberIds;
+    private List<TaskDTO> tasks;
+
+   // private List<MemberDTO> members;
 }

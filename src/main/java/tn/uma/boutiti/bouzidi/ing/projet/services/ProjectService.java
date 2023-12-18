@@ -1,41 +1,21 @@
 package tn.uma.boutiti.bouzidi.ing.projet.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import jakarta.transaction.Transactional;
-import tn.uma.boutiti.bouzidi.ing.projet.exceptions.EntityNotFoundException;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Label;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Task;
-import tn.uma.boutiti.bouzidi.ing.projet.repository.MemberRepository;
-import tn.uma.boutiti.bouzidi.ing.projet.repository.ProjectRepository;
+import tn.uma.boutiti.bouzidi.ing.projet.dto.ProjectDTO;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-@Service
-@Transactional
-public class ProjectService {
 
-    private final ProjectRepository projectRepository;
-    private final MemberRepository memberRepository;
-    private TaskService taskService;
+public interface ProjectService {
 
-    public ProjectService(ProjectRepository projectRepository, TaskService taskService, MemberRepository memberRepository) {
-        this.projectRepository = projectRepository;
-        this.taskService = taskService;
-        this.memberRepository = memberRepository;
-    }
+    ProjectDTO save(ProjectDTO projectDTO) ;
 
-    public Project createProject(String name) {
-        Project project = new Project();
-        project.setName(name);
-        return projectRepository.save(project);
-    }
+    List<ProjectDTO> findAll();
+
+    ProjectDTO findOne(Long id);
+
+    void delete(Long id);
+
     
-    public void assignTaskToProject(Long taskId, Long projectId) {
+  /*  public void assignTaskToProject(Long taskId, Long projectId) {
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() -> new EntityNotFoundException("Project not found"));
 
@@ -49,7 +29,7 @@ public class ProjectService {
         } else {
             throw new EntityNotFoundException("Task not found");
         }
-    }
+    }*/
     
    
 

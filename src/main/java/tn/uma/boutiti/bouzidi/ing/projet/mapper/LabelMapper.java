@@ -1,24 +1,15 @@
 package tn.uma.boutiti.bouzidi.ing.projet.mapper;
 
-import org.springframework.stereotype.Component;
-
+import org.mapstruct.Mapper;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Label;
-@Component
-public class LabelMapper {
+@Mapper(componentModel = "spring")
+public interface LabelMapper extends EntityMapper<LabelDTO, Label>
+{
+    LabelDTO toDto(Label label);
 
-    public LabelDTO toLabelDTO(Label label) {
-        LabelDTO labelDTO = new LabelDTO();
-        labelDTO.setId(label.getId());
-        labelDTO.setName(label.getName());               
-        return labelDTO;
-    }
+    Label toEntity(LabelDTO labelDTO);
 
-    public Label toLabel(LabelDTO labelDTO) {
-        Label label = new Label();
-        label.setId(labelDTO.getId());
-        label.setName(labelDTO.getName());
-               
-        return label;
-    }
+
+
 }

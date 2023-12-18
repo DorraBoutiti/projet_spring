@@ -1,17 +1,11 @@
 package tn.uma.boutiti.bouzidi.ing.projet.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,14 +20,14 @@ public class Project {
     private String name;
 
     @OneToMany(mappedBy = "project")
-    private Set<Task> tasks = new HashSet<>();
+    private List<Task> tasks ;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "project_member",
         joinColumns = @JoinColumn(name = "project_id"),
         inverseJoinColumns = @JoinColumn(name = "member_id")
     )
-    private Set<Member> members;
+    private List<Member> members;
     
 }

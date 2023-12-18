@@ -1,19 +1,12 @@
 package tn.uma.boutiti.bouzidi.ing.projet.models;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -27,6 +20,6 @@ public class Member {
     private String username;
     private String password;
     @JsonIgnore // Use @JsonIgnore to break the serialization loop
-    @OneToMany(mappedBy = "members")
+    @ManyToMany(mappedBy = "members")
     private List<Project> projects;
 }

@@ -1,10 +1,11 @@
 package tn.uma.boutiti.bouzidi.ing.projet.dto;
 
-import java.util.Set;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -12,5 +13,5 @@ import lombok.NoArgsConstructor;
 public class MemberDTO {
     private Long id;
     private String username;
-    private Set<Long> projectIds;
+    private List<ProjectDTO> projects;
 }
