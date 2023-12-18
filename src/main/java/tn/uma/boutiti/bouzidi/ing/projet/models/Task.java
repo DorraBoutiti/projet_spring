@@ -2,11 +2,7 @@ package tn.uma.boutiti.bouzidi.ing.projet.models;
 
 
 import java.time.LocalDate;
-import java.time.LocalDate; 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
-
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -40,7 +36,7 @@ public class Task {
     		joinColumns = @JoinColumn(name = "task_id"),
     		inverseJoinColumns = @JoinColumn(name = "label_id")
     )
-    private Set<Label> labels = new HashSet<>();
+    private List<Label> labels;
     
     @ManyToOne
     @JoinColumn(name = "project_id")

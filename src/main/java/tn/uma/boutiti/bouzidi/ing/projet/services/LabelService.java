@@ -12,7 +12,12 @@ import java.util.Optional;
 public class LabelService {
 
     private final LabelRepository labelRepository;
-
+    
+    public Label createLabel(String name) {
+        Label label = new Label();
+        label.setName(name);
+        return labelRepository.save(label);
+    }
     @Autowired
     public LabelService(LabelRepository labelRepository) {
         this.labelRepository = labelRepository;
