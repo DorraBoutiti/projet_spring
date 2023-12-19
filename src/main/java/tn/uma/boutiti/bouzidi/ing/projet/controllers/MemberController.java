@@ -4,8 +4,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.servlet.http.HttpSession;
 import tn.uma.boutiti.bouzidi.ing.projet.exceptions.EntityNotFoundException;
+import tn.uma.boutiti.bouzidi.ing.projet.exceptions.UsernameNotUniqueException;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
+import tn.uma.boutiti.bouzidi.ing.projet.repository.MemberRepository;
+import tn.uma.boutiti.bouzidi.ing.projet.repository.ProjectRepository;
 import tn.uma.boutiti.bouzidi.ing.projet.services.MemberService;
 
 import java.util.List;
@@ -16,26 +21,59 @@ import java.util.Optional;
 public class MemberController {
 
     private final MemberService memberService;
+    private final MemberRepository memberRepository;
+    private final ProjectRepository projectRepository;
 
     @Autowired
-    public MemberController(MemberService memberService) {
+    public MemberController(MemberService memberService, MemberRepository memberRepository, ProjectRepository projectRepository) {
         this.memberService = memberService;
+        this.memberRepository = memberRepository;
+		this.projectRepository = projectRepository;
+    }
+    @GetMapping("/create")
+    public String showCreateMemberForm() {
+        return "login"; 
     }
     
     @PostMapping("/create")
-    public ResponseEntity<Member> createMember(
-    		@RequestParam String username,
-    		@RequestParam String password) {
-        Member createdMember = memberService.createMember(username, password);
-        
-        if (createdMember != null) {
-            return ResponseEntity.ok(createdMember);
-        } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    public ResponseEntity<String> createMember(
+            @RequestParam String username,
+            @RequestParam String password) {
+        try {
+            Member createdMember = memberService.createMember(username, password);
+            return ResponseEntity.ok("Member created with ID: " + createdMember.getId());
+        } catch (UsernameNotUniqueException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Username already exists. Please choose another username.");
+        }
+    }
+    
+    @PostMapping("/signin")
+    public ResponseEntity<?> signIn(@RequestParam String username, @RequestParam String password, HttpSession session) {
+        try {
+            List<Member> members = memberRepository.findByUsername(username);
+
+            if (!members.isEmpty()) {
+                Member member = members.get(0);
+                // Check if the password matches
+                if (member.getPassword().equals(password)) {
+                    // Authentication successful, store member ID in session
+                    session.setAttribute("loggedInMemberId", member.getId());
+                    return ResponseEntity.ok().body(member);
+                } else {
+                    // Authentication failed
+                    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+                }
+            } else {
+                // Member with the given username not found
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error during sign-in");
         }
     }
 
-   
+    
     @GetMapping("all-members")
     public ResponseEntity<List<Member>> getAllMembers() {
         List<Member> members = memberService.getAllMembers();
@@ -74,6 +112,21 @@ public class MemberController {
         	return null;
             //return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                    // .body("Failed to assign project to member");
+        }
+    }
+    @GetMapping("/members/{memberId}/projects")
+    public ResponseEntity<List<Project>> getProjectsByMemberId(@PathVariable Long memberId) {
+        try {
+            Member member = memberRepository.findById(memberId)
+                    .orElseThrow(() -> new EntityNotFoundException("Member not found with id: " + memberId));
+
+            List<Project> projects = projectRepository.findByMembers(member);
+
+            return ResponseEntity.ok(projects);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 }

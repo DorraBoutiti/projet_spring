@@ -1,9 +1,11 @@
 package tn.uma.boutiti.bouzidi.ing.projet.services;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
 import tn.uma.boutiti.bouzidi.ing.projet.exceptions.EntityNotFoundException;
+import tn.uma.boutiti.bouzidi.ing.projet.exceptions.UsernameNotUniqueException;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
 import tn.uma.boutiti.bouzidi.ing.projet.repository.MemberRepository;
@@ -29,13 +31,17 @@ public class MemberService {
         return memberRepository.findById(id);
     }
     
-    public Member createMember(String username,String password) {
-    	Member member = new Member();
-    	member.setUsername(username);
-    	member.setPassword(password);
-    	memberRepository.save(member);
-    	return member;
+    public Member createMember(String username, String password) {
+        Member member = new Member();
+        member.setUsername(username);
+        member.setPassword(password);
+        try {
+            return memberRepository.save(member);
+        } catch (DataIntegrityViolationException e) {
+            throw new UsernameNotUniqueException("Username already exists!");
+        }
     }
+
 
     
     public Optional<List<Member>> findMemberByUsername(String username) {

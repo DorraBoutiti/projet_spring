@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Member</title>
+    <style>
+        .success-message {
+            color: green;
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Create Member</h2>
+    
+    <!-- Form for creating a member -->
+    <form action="/members/create" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">Create Member</button>
+    </form>
+
+    <!-- Display success or error messages -->
+    <div th:if="${param.successMessage}" class="success-message">
+        <p th:text="${param.successMessage}"></p>
+    </div>
+    <div th:if="${param.errorMessage}" class="error-message">
+        <p th:text="${param.errorMessage}"></p>
+    </div>
+</body>
+</html>
