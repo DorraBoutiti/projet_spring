@@ -15,4 +15,13 @@ public interface TaskMapper extends EntityMapper<TaskDTO, Task> {
 
     Task toEntity(TaskDTO taskDTO);
 
+    default Task fromId(Long id) {
+        if (id == null) {
+            return null;
+        }
+        Task task = new Task();
+        task.setId(id);
+        return task;
+    }
+
 }
