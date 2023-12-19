@@ -1,6 +1,7 @@
 package tn.uma.boutiti.bouzidi.ing.projet.services;
 
 import tn.uma.boutiti.bouzidi.ing.projet.dto.MemberDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface MemberService {
 
     void delete(Long id);
 
-
+    public List<Project> getAllProjectsAndTasksByUsername(String username);
    /* @Transactional
     public void assignProjectToMember(Long memberId, Long projectId) {
     	System.out.println(2);

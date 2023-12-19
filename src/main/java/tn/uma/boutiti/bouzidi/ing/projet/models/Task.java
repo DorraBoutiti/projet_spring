@@ -36,9 +36,8 @@ public class Task {
     private List<Label> labels;
     
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "project_id")
     private Project project;
-    
 
-    
 }

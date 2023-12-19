@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.MemberDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
 import tn.uma.boutiti.bouzidi.ing.projet.services.MemberService;
 
 import java.util.List;
@@ -32,6 +33,12 @@ public class MemberController {
     public ResponseEntity<MemberDTO> findOne(@PathVariable Long id) {
         MemberDTO member = memberService.findOne(id);
         return ResponseEntity.ok().body(member);
+    }
+
+    @GetMapping("/tasks/{username}")
+    public ResponseEntity<List<Project>> getAllProjectsAndTasksByUsername(@PathVariable String username) {
+        List<Project> listProject = memberService.getAllProjectsAndTasksByUsername(username);
+        return ResponseEntity.ok().body(listProject);
     }
 
     @DeleteMapping("/{id}")

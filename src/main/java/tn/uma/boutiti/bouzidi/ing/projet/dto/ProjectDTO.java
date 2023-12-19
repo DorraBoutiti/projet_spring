@@ -16,5 +16,5 @@ public class ProjectDTO {
     private String name;
     private List<TaskDTO> tasks;
 
-   // private List<MemberDTO> members;
+    private List<MemberDTO> members;
 }
