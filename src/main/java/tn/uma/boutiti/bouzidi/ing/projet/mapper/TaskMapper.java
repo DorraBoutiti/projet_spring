@@ -13,6 +13,7 @@ public interface TaskMapper extends EntityMapper<TaskDTO, Task> {
     @Mapping(source ="project.name", target = "projectName")
     TaskDTO toDto(Task task);
 
+    @Mapping(source = "projectId", target = "project")
     Task toEntity(TaskDTO taskDTO);
 
     default Task fromId(Long id) {
