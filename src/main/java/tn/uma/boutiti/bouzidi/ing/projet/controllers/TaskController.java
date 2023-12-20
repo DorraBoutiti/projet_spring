@@ -96,4 +96,14 @@ public class TaskController {
             return ResponseEntity.ok().body(tasks);
         }
     }
+    @GetMapping("/label/{labelId}/tasks")
+    public ResponseEntity<List<TaskDTO>> getTasksByLabel(@PathVariable Long labelId) {
+        List<TaskDTO> tasks = taskService.getTasksByLabel(labelId);
+
+        if (tasks.isEmpty()) {
+            return ResponseEntity.noContent().build(); // Aucune tâche trouvée pour ce label
+        } else {
+            return ResponseEntity.ok().body(tasks);
+        }
+    }
 }

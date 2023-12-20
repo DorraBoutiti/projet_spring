@@ -56,4 +56,13 @@ public class TaskServiceImpl implements TaskService {
                 .map(taskMapper::toDto) 
                 .collect(Collectors.toList());
     }
+    
+    @Override
+    public List<TaskDTO> getTasksByLabel(Long labelId) {
+        List<Task> tasks = taskRepository.findByLabelsId(labelId); // Supposons une méthode findByLabelsId dans le repository
+
+        return tasks.stream()
+                .map(taskMapper::toDto) // Convertir chaque entité Task en TaskDTO
+                .collect(Collectors.toList());
+    }
 }

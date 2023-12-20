@@ -12,4 +12,5 @@ import tn.uma.boutiti.bouzidi.ing.projet.models.Task;
 public interface TaskRepository extends JpaRepository<Task, Long> {
     List<Task> findByTitleContaining(String keyword);
     List<Task> findByProjectId(Long projectId);
+    List<Task> findByLabelsId(Long labelId);
 }
