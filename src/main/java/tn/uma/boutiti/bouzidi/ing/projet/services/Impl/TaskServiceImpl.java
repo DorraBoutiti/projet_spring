@@ -46,4 +46,22 @@ public class TaskServiceImpl implements TaskService {
     public void delete(Long id) {
         taskRepository.deleteById(id);
     }
+
+    @Override
+    public TaskDTO toTrash(Long id) {
+        Task task = taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
+        task.setArchived(true);
+        task = taskRepository.save(task);
+        return taskMapper.toDto(task);
+    }
+
+    @Override
+    public TaskDTO toListTask(Long id) {
+        Task task = taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
+        task.setArchived(false);
+        task = taskRepository.save(task);
+        return taskMapper.toDto(task);
+    }
+
+
 }

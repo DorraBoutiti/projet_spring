@@ -9,5 +9,6 @@ import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Long> {
 	 List<Member> findByUsername(String username);
-    
+
+
 }

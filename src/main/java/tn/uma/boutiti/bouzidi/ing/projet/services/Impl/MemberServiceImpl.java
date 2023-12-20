@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.MemberDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.dto.ProjectDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.mapper.MemberMapper;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
@@ -50,15 +51,17 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public List<Project> getAllProjectsAndTasksByUsername(String username) {
+    public List<ProjectDTO> getAllProjectsAndTasksByUsername(String username) {
         List<Member> members = memberRepository.findByUsername(username);
 
         if (!members.isEmpty()) {
             Member member = members.get(0); // Assuming username is unique
 
-            return member.getProjects();
+            return memberMapper.toDto(member).getProjects();
         }
 
         return Collections.emptyList();
     }
+
+
 }

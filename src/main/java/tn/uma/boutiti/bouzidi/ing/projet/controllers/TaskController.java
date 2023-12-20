@@ -59,6 +59,18 @@ public class TaskController {
         }
     }
 
+    @PutMapping("/{id}/to-trash")
+    public ResponseEntity<TaskDTO> toTrash(@PathVariable Long id) {
+        TaskDTO task = taskService.toTrash(id);
+        return ResponseEntity.ok().body(task);
+    }
+
+    @PutMapping("/{id}/to-list-task")
+    public ResponseEntity<TaskDTO> toListTask(@PathVariable Long id) {
+        TaskDTO task = taskService.toListTask(id);
+        return ResponseEntity.ok().body(task);
+    }
+
     
   /*  @PostMapping("/labels/add")
     public ResponseEntity<String> addLabelToTask(@RequestParam Long taskId, @RequestParam Long labelId) {

@@ -16,6 +16,10 @@ public interface TaskService {
 
     void delete(Long id);
 
+    TaskDTO toTrash(Long id);
+
+    TaskDTO toListTask(Long id);
+
     
    
     

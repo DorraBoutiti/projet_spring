@@ -25,7 +25,7 @@ public class Task {
     private LocalDate startDate;
     private LocalDate dueDate;
     private boolean completed;
-    
+    private boolean archived;
     
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
