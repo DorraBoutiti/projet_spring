@@ -7,8 +7,9 @@ import tn.uma.boutiti.bouzidi.ing.projet.dto.MemberDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.ProjectDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.services.MemberService;
 import tn.uma.boutiti.bouzidi.ing.projet.services.ProjectService;
-
+import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/members")
@@ -35,7 +36,13 @@ public class MemberController {
     @GetMapping("/{id}")
     public ResponseEntity<MemberDTO> findOne(@PathVariable Long id) {
         MemberDTO member = memberService.findOne(id);
-        return ResponseEntity.ok().body(member);
+        return ResponseEntity.ok().body(member);        
+    }
+
+     @GetMapping("/tasks/{username}")
+    public ResponseEntity<List<Project>> getAllProjectsAndTasksByUsername(@PathVariable String username) {
+        List<Project> listProject = memberService.getAllProjectsAndTasksByUsername(username);
+        return ResponseEntity.ok().body(listProject);
     }
 
     @DeleteMapping("/{id}")

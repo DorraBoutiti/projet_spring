@@ -11,5 +11,13 @@ public interface MemberMapper extends EntityMapper<MemberDTO, Member>{
 
     Member toEntity(MemberDTO memberDTO);
 
+    default Member fromId(Long id) {
+        if (id == null) {
+            return null;
+        }
+        Member member = new Member();
+        member.setId(id);
+        return member;
+    }
 
 }

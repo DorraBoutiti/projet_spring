@@ -1,5 +1,6 @@
 package tn.uma.boutiti.bouzidi.ing.projet.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,7 @@ public class Project {
     
     private String name;
 
-    @OneToMany(mappedBy = "project")
+    @OneToMany(mappedBy = "project",fetch = FetchType.EAGER)
     private List<Task> tasks ;
 
     @ManyToMany(fetch = FetchType.EAGER)
