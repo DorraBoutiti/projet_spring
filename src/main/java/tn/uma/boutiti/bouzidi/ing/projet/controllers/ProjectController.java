@@ -15,11 +15,7 @@ public class ProjectController {
 
     @Autowired
     private  ProjectService projectService;
-
-   /* public ProjectController(ProjectService projectService) {
-        this.projectService = projectService;
-    }*/
-
+    
     @PostMapping
     public ResponseEntity<ProjectDTO> createProject(@RequestBody ProjectDTO ProjectDTO) {
         ProjectDTO Project = projectService.save(ProjectDTO);
@@ -53,16 +49,4 @@ public class ProjectController {
             return ResponseEntity.ok().body(Project);
         }
     }
-
-
-
-   /* @PostMapping("/{projectId}/assign-task")
-    public ResponseEntity<String> assignTaskToProject(
-            @PathVariable Long projectId,
-            @RequestParam Long taskId
-    ) {
-        projectService.assignTaskToProject(taskId, projectId);
-        return ResponseEntity.ok("Task assigned to the project successfully");
-    }*/
-
 }
