@@ -27,7 +27,7 @@
 #PUT /api/tasks/{taskId}/markAsCompleted - Mark a task as completed (based on the logic provided)
 #PUT /api/tasks/{taskId}/assignLabel/{labelId} - Assign a label to a task (based on the logic provided)
 #PUT /api/tasks/{taskId}/assignProject/{projectId} - Assign a project to a task (based on the logic provided)
-#GET /api/tasks/{projectId} - Get all tasks in a project
+#GET /api/tasks/{projectId}/tasks - Get all tasks in a project
 
 
 #Create new task
