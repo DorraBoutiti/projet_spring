@@ -74,4 +74,16 @@ public class TaskController {
             return ResponseEntity.notFound().build(); 
         }
     }
+    @PutMapping("/{taskId}/markAsCompleted")
+    public ResponseEntity<TaskDTO> markTaskAsCompleted(@PathVariable Long taskId) {
+        TaskDTO task = taskService.findOne(taskId);
+
+        if (task != null) {            
+            task.setCompleted(true);
+            taskService.save(task); 
+            return ResponseEntity.ok().body(task);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
