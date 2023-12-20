@@ -11,9 +11,6 @@ import tn.uma.boutiti.bouzidi.ing.projet.models.Task;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
     List<Task> findByTitleContaining(String keyword);
-   /* @EntityGraph(attributePaths = "labels")
-    List<Task> findAll();*/
-  /*  @Query("SELECT t FROM Task t LEFT JOIN FETCH t.labels")
-    List<Task> findAll();*/
-    
+    List<Task> findByProjectId(Long projectId);
+    List<Task> findByLabelsId(Long labelId);
 }

@@ -15,32 +15,15 @@ public interface TaskService {
     TaskDTO findOne(Long id);
 
     void delete(Long id);
+	List<TaskDTO> getTasksByProject(Long projectId);
+	List<TaskDTO> getTasksByLabel(Long labelId);
 
     TaskDTO toTrash(Long id);
 
     TaskDTO toListTask(Long id);
 
-    
-   
-    
-   /* public void addLabelToTask(Long taskId, Long labelId) {
-        Task task = taskRepository.findById(taskId).orElseThrow(() -> new EntityNotFoundException("Task not found"));
-        Label label = labelRepository.findById(labelId).orElseThrow(() -> new EntityNotFoundException("Label not found"));
-        
-        task.getLabels().add(label);
-        label.getTasks().add(task);
-    }
-    public void addProjectToTask(Long projectID, Long taskID) {
-    	Task task = taskRepository.findById(taskID).orElseThrow(() -> new EntityNotFoundException("Task not found"));
-        Project project = projectRepository.findById(projectID).orElseThrow(() -> new EntityNotFoundException("Label not found"));
-        
-        task.setProject(project);
-        project.getTasks().add(task);
-    }
-    public Task findTaskById(Long taskId) {
-        return taskRepository.findById(taskId)
-                .orElse(null);
-    }*/
+
+
 
 
 }

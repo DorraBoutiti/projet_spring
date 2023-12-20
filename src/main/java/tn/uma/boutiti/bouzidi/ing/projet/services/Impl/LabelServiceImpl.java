@@ -44,6 +44,4 @@ public class LabelServiceImpl implements LabelService {
     public void delete(Long id) {
         labelRepository.deleteById(id);
     }
-
-
 }

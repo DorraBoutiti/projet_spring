@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.ProjectDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.services.ProjectService;
+import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 
 import java.util.List;
 
@@ -15,11 +17,9 @@ public class ProjectController {
 
     @Autowired
     private  ProjectService projectService;
-
-   /* public ProjectController(ProjectService projectService) {
-        this.projectService = projectService;
-    }*/
-
+    @Autowired
+    private TaskService taskService;
+    
     @PostMapping
     public ResponseEntity<ProjectDTO> createProject(@RequestBody ProjectDTO ProjectDTO) {
         ProjectDTO Project = projectService.save(ProjectDTO);
@@ -53,16 +53,18 @@ public class ProjectController {
             return ResponseEntity.ok().body(Project);
         }
     }
-
-
-
-   /* @PostMapping("/{projectId}/assign-task")
-    public ResponseEntity<String> assignTaskToProject(
-            @PathVariable Long projectId,
-            @RequestParam Long taskId
-    ) {
-        projectService.assignTaskToProject(taskId, projectId);
-        return ResponseEntity.ok("Task assigned to the project successfully");
-    }*/
-
+    @PutMapping("/{projectId}/assignTask/{taskId}")
+    public ResponseEntity<ProjectDTO> assignTaskToProject(@PathVariable Long projectId, @PathVariable Long taskId) {
+        ProjectDTO project = projectService.findOne(projectId);
+        TaskDTO task = taskService.findOne(taskId);
+        if (project != null && task != null) {            
+            List<TaskDTO> projectTasks = project.getTasks();
+            projectTasks.add(task);            
+            project.setTasks(projectTasks);
+            projectService.save(project);
+            return ResponseEntity.ok().body(project);
+        } else {
+            return ResponseEntity.notFound().build(); 
+        }
+    }
 }

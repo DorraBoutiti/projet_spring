@@ -1,8 +1,11 @@
 package tn.uma.boutiti.bouzidi.ing.projet.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.services.LabelService;
 import tn.uma.boutiti.bouzidi.ing.projet.services.TaskDisplayService;
 import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 
@@ -14,15 +17,11 @@ import java.util.Set;
 public class TaskController {
 
     private final TaskService taskService;
-    private final TaskDisplayService taskDisplayService;
+    @Autowired
+    private LabelService labelService;
 
-
-
-
-    public TaskController(TaskService taskService, TaskDisplayService taskDisplayService) {
+    public TaskController(TaskService taskService) {
         this.taskService = taskService;
-        this.taskDisplayService = taskDisplayService;
-
     }
 
     @PostMapping
@@ -59,6 +58,54 @@ public class TaskController {
         }
     }
 
+    @PutMapping("/{taskId}/assignLabel/{labelId}")
+    public ResponseEntity<TaskDTO> assignLabelToTask(@PathVariable Long taskId, @PathVariable Long labelId) {
+        TaskDTO task = taskService.findOne(taskId);
+        LabelDTO label = labelService.findOne(labelId);
+
+        if (task != null && label != null) {
+            List<LabelDTO> taskLabels = task.getLabels();
+            taskLabels.add(label);
+            task.setLabels(taskLabels);
+            taskService.save(task);
+            return ResponseEntity.ok().body(task);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @PutMapping("/{taskId}/markAsCompleted")
+    public ResponseEntity<TaskDTO> markTaskAsCompleted(@PathVariable Long taskId) {
+        TaskDTO task = taskService.findOne(taskId);
+
+        if (task != null) {
+            task.setCompleted(true);
+            taskService.save(task);
+            return ResponseEntity.ok().body(task);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @GetMapping("/{projectId}/tasks")
+    public ResponseEntity<List<TaskDTO>> getTasksByProject(@PathVariable Long projectId) {
+        List<TaskDTO> tasks = taskService.getTasksByProject(projectId);
+
+        if (tasks.isEmpty()) {
+            return ResponseEntity.noContent().build(); // Aucune tâche trouvée pour ce projet
+        } else {
+            return ResponseEntity.ok().body(tasks);
+        }
+    }
+    @GetMapping("/label/{labelId}/tasks")
+    public ResponseEntity<List<TaskDTO>> getTasksByLabel(@PathVariable Long labelId) {
+        List<TaskDTO> tasks = taskService.getTasksByLabel(labelId);
+
+        if (tasks.isEmpty()) {
+            return ResponseEntity.noContent().build(); // Aucune tâche trouvée pour ce label
+        } else {
+            return ResponseEntity.ok().body(tasks);
+        }
+    }
+
     @PutMapping("/{id}/to-trash")
     public ResponseEntity<TaskDTO> toTrash(@PathVariable Long id) {
         TaskDTO task = taskService.toTrash(id);
@@ -70,21 +117,4 @@ public class TaskController {
         TaskDTO task = taskService.toListTask(id);
         return ResponseEntity.ok().body(task);
     }
-
-    
-  /*  @PostMapping("/labels/add")
-    public ResponseEntity<String> addLabelToTask(@RequestParam Long taskId, @RequestParam Long labelId) {
-        taskService.addLabelToTask(taskId, labelId);
-        return ResponseEntity.ok("Label added to the task successfully");
-    }*/
-    
-   /* @GetMapping("/{taskId}/with-labels")
-    public ResponseEntity<TaskDTO> getTaskWithLabels(@PathVariable Long taskId) {
-      //  TaskDTO taskDTO = taskDisplayService.getTaskWithLabels(taskId);
-      //  return ResponseEntity.ok(taskDTO);
-        return null;
-    }*/
-
-
-    
 }

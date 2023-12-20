@@ -5,10 +5,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.MemberDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.ProjectDTO;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
 import tn.uma.boutiti.bouzidi.ing.projet.services.MemberService;
-
+import tn.uma.boutiti.bouzidi.ing.projet.services.ProjectService;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/members")
@@ -16,6 +16,8 @@ public class MemberController {
 
     @Autowired
     private  MemberService memberService;
+    @Autowired
+    private ProjectService projectService;
 
 
     @PostMapping
@@ -57,26 +59,20 @@ public class MemberController {
             return ResponseEntity.ok().body(member);
         }
     }
+    @PutMapping("/{memberId}/assignProject/{projectId}")
+    public ResponseEntity<MemberDTO> assignProjectToMember(@PathVariable Long memberId, @PathVariable Long projectId) {
+        MemberDTO member = memberService.findOne(memberId);
+        ProjectDTO project = projectService.findOne(projectId);
 
-   /* @PutMapping("/{memberId}/projects/{projectId}")
-    public ResponseEntity<String> assignProjectToMember(
-            @PathVariable Long memberId,
-            @PathVariable Long projectId
-    ) {
-        try {
-        	System.out.println(1);
-            memberService.assignProjectToMember(memberId, projectId);
-            System.out.println(9);
-            return ResponseEntity.ok("Project assigned to member successfully");
-        } catch (EntityNotFoundException e) {
-        	System.out.println(10);
-        	return null;
-            //return ResponseEntity.notFound().build();
-        } catch (Exception e) {
-        	System.out.println(11);
-        	return null;
-            //return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                   // .body("Failed to assign project to member");
+        if (member != null && project != null) {
+            List<ProjectDTO> memberProjects = member.getProjects();
+            memberProjects.add(project);
+            member.setProjects(memberProjects);
+            memberService.save(member);
+            return ResponseEntity.ok().body(member);
+        } else {
+            return ResponseEntity.notFound().build();
         }
-    }*/
+    }
+
 }

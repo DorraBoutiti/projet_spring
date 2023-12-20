@@ -12,6 +12,7 @@ import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -45,6 +46,24 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public void delete(Long id) {
         taskRepository.deleteById(id);
+    }
+
+    @Override
+    public List<TaskDTO> getTasksByProject(Long projectId) {
+        List<Task> tasks = taskRepository.findByProjectId(projectId);
+
+        return tasks.stream()
+                .map(taskMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<TaskDTO> getTasksByLabel(Long labelId) {
+        List<Task> tasks = taskRepository.findByLabelsId(labelId); // Supposons une méthode findByLabelsId dans le repository
+
+        return tasks.stream()
+                .map(taskMapper::toDto) // Convertir chaque entité Task en TaskDTO
+                .collect(Collectors.toList());
     }
 
     @Override
