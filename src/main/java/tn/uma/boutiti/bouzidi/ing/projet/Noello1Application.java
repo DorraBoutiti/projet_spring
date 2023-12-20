@@ -41,7 +41,7 @@ public class Noello1Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // Create two Members
-/*        Member member1 = new Member();
+        Member member1 = new Member();
         member1.setUsername("JohnDoe");
         member1.setPassword("password1");
 
@@ -89,7 +89,7 @@ public class Noello1Application implements CommandLineRunner {
         memberRepository.saveAll(Arrays.asList(member1, member2));
         projectRepository.save(project);
         taskRepository.saveAll(Arrays.asList(task1, task2));
-        labelRepository.saveAll(Arrays.asList(label1, label2));*/
-    }
+        labelRepository.saveAll(Arrays.asList(label1, label2));
+     }
 
 }
