@@ -1,8 +1,12 @@
 package tn.uma.boutiti.bouzidi.ing.projet.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.services.LabelService;
 import tn.uma.boutiti.bouzidi.ing.projet.services.TaskDisplayService;
 import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 
@@ -13,16 +17,12 @@ import java.util.Set;
 @RequestMapping("/api/tasks")
 public class TaskController {
 
-    private final TaskService taskService;
-    private final TaskDisplayService taskDisplayService;
+    private final TaskService taskService;    
+    @Autowired
+    private LabelService labelService;
 
-
-
-
-    public TaskController(TaskService taskService, TaskDisplayService taskDisplayService) {
-        this.taskService = taskService;
-        this.taskDisplayService = taskDisplayService;
-
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;   
     }
 
     @PostMapping
@@ -57,22 +57,21 @@ public class TaskController {
             TaskDTO task = taskService.save(taskDTO);
             return ResponseEntity.ok().body(task);
         }
+    } 
+    
+    @PutMapping("/{taskId}/assignLabel/{labelId}")
+    public ResponseEntity<TaskDTO> assignLabelToTask(@PathVariable Long taskId, @PathVariable Long labelId) {
+        TaskDTO task = taskService.findOne(taskId);
+        LabelDTO label = labelService.findOne(labelId);
+
+        if (task != null && label != null) {            
+            List<LabelDTO> taskLabels = task.getLabels();
+            taskLabels.add(label);            
+            task.setLabels(taskLabels);
+            taskService.save(task);
+            return ResponseEntity.ok().body(task);
+        } else {
+            return ResponseEntity.notFound().build(); 
+        }
     }
-
-    
-  /*  @PostMapping("/labels/add")
-    public ResponseEntity<String> addLabelToTask(@RequestParam Long taskId, @RequestParam Long labelId) {
-        taskService.addLabelToTask(taskId, labelId);
-        return ResponseEntity.ok("Label added to the task successfully");
-    }*/
-    
-   /* @GetMapping("/{taskId}/with-labels")
-    public ResponseEntity<TaskDTO> getTaskWithLabels(@PathVariable Long taskId) {
-      //  TaskDTO taskDTO = taskDisplayService.getTaskWithLabels(taskId);
-      //  return ResponseEntity.ok(taskDTO);
-        return null;
-    }*/
-
-
-    
 }
