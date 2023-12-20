@@ -1,16 +1,18 @@
 package tn.uma.boutiti.bouzidi.ing.projet.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Label;
 import tn.uma.boutiti.bouzidi.ing.projet.services.LabelService;
-import tn.uma.boutiti.bouzidi.ing.projet.services.TaskDisplayService;
 import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/tasks")
@@ -90,7 +92,7 @@ public class TaskController {
         List<TaskDTO> tasks = taskService.getTasksByProject(projectId);
 
         if (tasks.isEmpty()) {
-            return ResponseEntity.noContent().build(); // Aucune tâche trouvée pour ce projet
+            return ResponseEntity.noContent().build(); 
         } else {
             return ResponseEntity.ok().body(tasks);
         }
@@ -100,7 +102,7 @@ public class TaskController {
         List<TaskDTO> tasks = taskService.getTasksByLabel(labelId);
 
         if (tasks.isEmpty()) {
-            return ResponseEntity.noContent().build(); // Aucune tâche trouvée pour ce label
+            return ResponseEntity.noContent().build(); 
         } else {
             return ResponseEntity.ok().body(tasks);
         }
@@ -116,5 +118,82 @@ public class TaskController {
     public ResponseEntity<TaskDTO> toListTask(@PathVariable Long id) {
         TaskDTO task = taskService.toListTask(id);
         return ResponseEntity.ok().body(task);
+    }
+    @GetMapping("/filterByLabel")
+    public ResponseEntity<List<TaskDTO>> filterTasksByLabelAndFutureDueDate(@RequestParam Long labelId) {
+        List<TaskDTO> filteredTasks = taskService.getTasksByLabelFiltred(labelId);
+
+        if (filteredTasks.isEmpty()) {
+            return ResponseEntity.noContent().build(); 
+        } else {
+            return ResponseEntity.ok().body(filteredTasks);
+        }
+    }
+    @GetMapping("/filterByLabelAndProject")
+    public ResponseEntity<List<TaskDTO>> filterTasksByLabelAndProject(
+            @RequestParam Long labelId,
+            @RequestParam Long projectId
+    ) {
+        List<TaskDTO> filteredTasks = taskService.getTasksByLabelAndProject(labelId, projectId);
+
+        if (filteredTasks.isEmpty()) {
+            return ResponseEntity.noContent().build(); 
+        } else {
+            return ResponseEntity.ok().body(filteredTasks);
+        }
+    }
+    @GetMapping("/filterByDueDate")
+    public ResponseEntity<List<TaskDTO>> filterTasksByDueDate(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dueDate) {
+        List<TaskDTO> filteredTasks = taskService.getTasksByDueDate(dueDate);
+
+        if (filteredTasks.isEmpty()) {
+            return ResponseEntity.noContent().build(); 
+        } else {
+            return ResponseEntity.ok().body(filteredTasks);
+        }
+    }
+    @GetMapping("/filterByDueDateAndProject")
+    public ResponseEntity<List<TaskDTO>> filterTasksByDueDateAndProject(
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dueDate,
+            @RequestParam Long projectId
+    ) {
+        List<TaskDTO> filteredTasks = taskService.getTasksByDueDateAndProjectSortedByDueDateDescending(dueDate, projectId);
+
+        if (filteredTasks.isEmpty()) {
+            return ResponseEntity.noContent().build(); 
+        } else {
+            return ResponseEntity.ok().body(filteredTasks);
+        }
+    }
+    @GetMapping("/filterByStartDateAndProject")
+    public ResponseEntity<List<TaskDTO>> filterTasksByStartDateAndProject(
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam Long projectId
+    ) {
+        List<TaskDTO> filteredTasks = taskService.getTasksByStartDateAndProjectSortedByStartDateAscending(startDate, projectId);
+
+        if (filteredTasks.isEmpty()) {
+            return ResponseEntity.noContent().build(); 
+        } else {
+            return ResponseEntity.ok().body(filteredTasks);
+        }
+    }
+    @GetMapping("/filterByCompletedAndProject")
+    public ResponseEntity<List<TaskDTO>> filterTasksByCompletedAndProject(
+            @RequestParam Boolean completed,
+            @RequestParam Long projectId
+    ) {
+        List<TaskDTO> filteredTasks = taskService.getTasksByCompletedAndProjectSortedByDueDateAscending(completed, projectId);
+
+        if (filteredTasks.isEmpty()) {
+            return ResponseEntity.noContent().build(); 
+        } else {
+            return ResponseEntity.ok().body(filteredTasks);
+        }
+    }
+    @GetMapping("/labels")
+    public ResponseEntity<Map<Label, Long>> getTaskCountByLabelInProject(@PathVariable Long projectId) {
+        Map<Label, Long> taskCounts = taskService.countTasksByProjectId(projectId);
+        return ResponseEntity.ok().body(taskCounts);
     }
 }
