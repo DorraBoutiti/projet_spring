@@ -86,4 +86,14 @@ public class TaskController {
             return ResponseEntity.notFound().build();
         }
     }
+    @GetMapping("/{projectId}/tasks")
+    public ResponseEntity<List<TaskDTO>> getTasksByProject(@PathVariable Long projectId) {
+        List<TaskDTO> tasks = taskService.getTasksByProject(projectId);
+
+        if (tasks.isEmpty()) {
+            return ResponseEntity.noContent().build(); // Aucune tâche trouvée pour ce projet
+        } else {
+            return ResponseEntity.ok().body(tasks);
+        }
+    }
 }
