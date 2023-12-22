@@ -142,4 +142,11 @@ return tasks.stream()
         return taskRepository.countTasksByProjectId(projectId);
     }
 	
+	@Override
+	public List<TaskDTO> searchTasksByName(String keyword) {
+		List<Task> tasks =taskRepository.findByLabels_NameContainingOrDescriptionContainingOrTitleContainingOrProject_NameContaining(
+	            keyword, keyword, keyword, keyword);
+		 return taskMapper.toDto(tasks);
+	}
+
 }

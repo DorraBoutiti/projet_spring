@@ -196,4 +196,11 @@ public class TaskController {
         Map<Label, Long> taskCounts = taskService.countTasksByProjectId(projectId);
         return ResponseEntity.ok().body(taskCounts);
     }
+    
+    @GetMapping("/search")
+    public ResponseEntity<List<TaskDTO>> searchTaskByName(
+            @RequestParam(required = false) String keyword) {
+	  List<TaskDTO> tasks = taskService.searchTasksByName(keyword);
+      return ResponseEntity.ok().body(tasks);
+}
 }
