@@ -41,16 +41,17 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http, HandlerMappingIntrospector introspector) throws Exception {
     	  MvcRequestMatcher.Builder mvcMatcherBuilder = new MvcRequestMatcher.Builder(introspector);
 
-    	http.csrf(csrf->csrf.ignoringRequestMatchers(mvcMatcherBuilder.pattern("/api/auth/**"),
-                PathRequest.toH2Console()));
+     
         http
                
                 .authorizeHttpRequests(req ->
                         req
                               
                                 .requestMatchers(mvcMatcherBuilder.pattern("/h2-console/**")).permitAll()  
-                              //  .requestMatchers("/api/tasks/**").hasAnyRole(ADMIN.name())
-                                .anyRequest().permitAll()
+                                .requestMatchers(mvcMatcherBuilder.pattern("/api/auth/**")).permitAll()  
+                               .requestMatchers(mvcMatcherBuilder.pattern("/api/tasks/**")).hasAnyRole(ADMIN.name())
+                               .anyRequest().permitAll()
+                               // .anyRequest().authenticated()
                 )
            
                 .authenticationProvider(authenticationProvider)
