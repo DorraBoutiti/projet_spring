@@ -50,7 +50,7 @@ public class MemberServiceImpl implements MemberService {
         memberRepository.deleteById(id);
     }
 
-    @Override
+   /* @Override
     public List<ProjectDTO> getAllProjectsAndTasksByUsername(String username) {
         List<Member> members = memberRepository.findByUsername(username);
 
@@ -61,7 +61,20 @@ public class MemberServiceImpl implements MemberService {
         }
 
         return Collections.emptyList();
-    }
+    }*/
 
+    @Override
+    public List<ProjectDTO> getAllProjectsAndTasksByUsername(String username) {
+	
+	   Optional<Member> members = memberRepository.findByUsername(username);
+
+        if (!members.isEmpty()) {
+            Member member = members.get(); 
+
+            return memberMapper.toDto(member).getProjects();
+        }
+
+        return Collections.emptyList();
+    }
 
 }
