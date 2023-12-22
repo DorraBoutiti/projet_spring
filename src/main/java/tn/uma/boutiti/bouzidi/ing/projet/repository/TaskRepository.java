@@ -24,4 +24,8 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 	List<Task> findByStartDateGreaterThanEqualAndProjectIdOrderByStartDateAsc(LocalDate startDate, Long projectId);
 	List<Task> findByCompletedAndProjectIdOrderByDueDateAsc(Boolean completed, Long projectId);
 	Map<Label, Long> countTasksByProjectId(Long projectId);
+	 List<Task> findByLabels_NameContainingOrDescriptionContainingOrTitleContainingOrProject_NameContaining(
+	    	    String labelKeyword, String descriptionKeyword, String titleKeyword, String projectKeyword);
+
+	 
 }
