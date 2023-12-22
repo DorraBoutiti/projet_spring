@@ -25,4 +25,7 @@ public interface TaskService {
 	List<TaskDTO> getTasksByCompletedAndProjectSortedByDueDateAscending(Boolean completed, Long projectId);
 	Map<Label, Long> countTasksByProjectId(Long projectId);		
 	List<TaskDTO> searchTasksByName(String keyword);
+	 List<TaskDTO> filter(List<Long> labelIds, Long projectId, String keyword, Boolean completed,
+		        LocalDate minStartDate, LocalDate maxStartDate, LocalDate minDueDate, LocalDate maxDueDate);
+
 }

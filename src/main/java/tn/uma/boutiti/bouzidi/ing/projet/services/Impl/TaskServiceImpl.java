@@ -148,5 +148,22 @@ return tasks.stream()
 	            keyword, keyword, keyword, keyword);
 		 return taskMapper.toDto(tasks);
 	}
+	
+	@Override
+	public List<TaskDTO> filter(List<Long> labelIds, Long projectId, String keyword, Boolean completed,
+			 LocalDate minStartDate, LocalDate maxStartDate, LocalDate minDueDate, LocalDate maxDueDate) {
+	    List<Task> tasks = taskRepository.findByLabels_IdInAndProject_IdAndTitleContainingOrDescriptionContaining(
+	            labelIds,
+	            projectId,
+	            keyword,
+	            keyword,
+	            completed,
+	            minStartDate,
+	            maxStartDate,
+	            minDueDate,
+	            maxDueDate
+	    );
+	    return taskMapper.toDto(tasks);
+	}
 
 }

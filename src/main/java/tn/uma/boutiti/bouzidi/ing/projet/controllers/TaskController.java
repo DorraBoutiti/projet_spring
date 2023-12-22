@@ -203,4 +203,29 @@ public class TaskController {
 	  List<TaskDTO> tasks = taskService.searchTasksByName(keyword);
       return ResponseEntity.ok().body(tasks);
 }
+    
+    @GetMapping("/filter")
+    public ResponseEntity<List<TaskDTO>> filter(
+            @RequestParam(required = false) List<Long> labelIds,
+            @RequestParam(required = false) String keyword,
+            @RequestParam(required = false) Long projectId,
+            @RequestParam(required = false) Boolean completed,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate minStartDate,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate maxStartDate,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate minDueDate,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate maxDueDate) {
+
+        List<TaskDTO> tasks = taskService.filter(
+                labelIds,
+                projectId,
+                keyword,
+                completed,
+                minStartDate,
+                maxStartDate,
+                minDueDate,
+                maxDueDate
+        );
+        return ResponseEntity.ok().body(tasks);
+    }
+
 }
