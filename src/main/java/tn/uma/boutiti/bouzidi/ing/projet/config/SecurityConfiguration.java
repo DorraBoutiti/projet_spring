@@ -36,7 +36,8 @@ public class SecurityConfiguration {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
 
-    @Bean
+    //H2 version
+   @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, HandlerMappingIntrospector introspector) throws Exception {
     	  MvcRequestMatcher.Builder mvcMatcherBuilder = new MvcRequestMatcher.Builder(introspector);
 
@@ -55,10 +56,30 @@ public class SecurityConfiguration {
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         http
-        .csrf().disable()  // Disable CSRF for H2 console
-        .headers().frameOptions().disable();  // Disable X-Frame-Options for H2 console
+        .csrf().disable()  
+        .headers().frameOptions().disable();   
 
 
         return http.build();
     }
+    
+    //Sql version
+    
+  /*  @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    	http.csrf(csrf->csrf.ignoringRequestMatchers(WHITE_LIST_URL));
+        http
+               
+                .authorizeHttpRequests(req ->
+                        req
+                                .requestMatchers(WHITE_LIST_URL).permitAll()
+                              //  .requestMatchers("/api/tasks/**").hasAnyRole(ADMIN.name())
+                                .anyRequest().permitAll()
+                )
+           
+                .authenticationProvider(authenticationProvider)
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
+    }*/
 }
