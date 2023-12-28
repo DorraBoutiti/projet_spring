@@ -49,7 +49,7 @@ public class SecurityConfiguration {
                               
                                 .requestMatchers(mvcMatcherBuilder.pattern("/h2-console/**")).permitAll()  
                                 .requestMatchers(mvcMatcherBuilder.pattern("/api/auth/**")).permitAll()  
-                               .requestMatchers(mvcMatcherBuilder.pattern("/api/tasks/**")).hasAnyRole(ADMIN.name())
+                               .requestMatchers(mvcMatcherBuilder.pattern("/api/tasks/**")).permitAll()
                                .anyRequest().permitAll()
                                // .anyRequest().authenticated()
                 )

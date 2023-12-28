@@ -41,6 +41,9 @@ public class Member  implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+	@ManyToMany(mappedBy = "members")
+	private List<Task> tasks;
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub

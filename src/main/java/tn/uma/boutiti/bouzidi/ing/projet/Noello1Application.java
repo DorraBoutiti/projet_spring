@@ -70,7 +70,11 @@ public class Noello1Application implements CommandLineRunner {
         // Create a Project
         Project project = new Project();
         project.setName("Sample Project");
+        project.setDescription("This is a sample project");
 
+        Project project2 = new Project();
+        project2.setName("Sample Project 2");
+        project2.setDescription("This is a sample project 2");
         // Create two Tasks
         Task task1 = new Task();
         task1.setTitle("Task 1");
@@ -106,6 +110,7 @@ public class Noello1Application implements CommandLineRunner {
         // Save entities
         memberRepository.saveAll(Arrays.asList(member1, member2));
         projectRepository.save(project);
+        projectRepository.save(project2);
         taskRepository.saveAll(Arrays.asList(task1, task2));
         labelRepository.saveAll(Arrays.asList(label1, label2));
      }
