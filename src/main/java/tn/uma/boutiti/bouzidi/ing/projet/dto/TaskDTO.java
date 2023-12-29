@@ -21,4 +21,5 @@ public class TaskDTO {
     private List<LabelDTO> labels;
     private Long projectId;
     private String projectName;
+    private String status;
 }
