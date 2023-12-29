@@ -27,5 +27,5 @@ public interface TaskService {
 	List<TaskDTO> searchTasksByName(String keyword);
 	 List<TaskDTO> filter(List<Long> labelIds, Long projectId, String keyword, Boolean completed,
 		        LocalDate minStartDate, LocalDate maxStartDate, LocalDate minDueDate, LocalDate maxDueDate);
-
+	 List<TaskDTO> getTasksByStatusAndMembers_Id(String status,Long memberId);
 }

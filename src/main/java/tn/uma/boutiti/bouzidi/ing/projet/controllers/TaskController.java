@@ -2,6 +2,7 @@ package tn.uma.boutiti.bouzidi.ing.projet.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
@@ -226,6 +227,19 @@ public class TaskController {
                 maxDueDate
         );
         return ResponseEntity.ok().body(tasks);
+    }
+    
+    @GetMapping("/getByStatusAndMemberId")
+    public ResponseEntity<List<TaskDTO>> getTasksByStatusAndMember(
+            @RequestParam String status,
+            @RequestParam Long memberId) {
+        try {
+            List<TaskDTO> tasks = taskService.getTasksByStatusAndMembers_Id(status, memberId);
+            return ResponseEntity.ok(tasks);
+        } catch (Exception e) {
+            // Handle exceptions and return an appropriate response
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 
 }
