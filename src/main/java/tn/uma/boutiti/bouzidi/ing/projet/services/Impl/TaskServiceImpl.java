@@ -166,4 +166,9 @@ return tasks.stream()
 	    return taskMapper.toDto(tasks);
 	}
 
+	@Override
+	public List<TaskDTO> getTasksByStatusAndMembers_Id(String status, Long memberId) {
+		 return taskMapper.toDto(taskRepository.findByStatusAndMembers_Id(status, memberId));
+	}
+
 }

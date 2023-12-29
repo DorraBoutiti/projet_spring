@@ -53,4 +53,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 	            @Param("minDueDate") LocalDate minDueDate,
 	            @Param("maxDueDate") LocalDate maxDueDate
 	    );
+	 List<Task> findByStatusAndMembers_Id(String status,Long memberId);
+	
+	 
 }
