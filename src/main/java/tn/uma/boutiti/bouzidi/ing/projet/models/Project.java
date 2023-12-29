@@ -20,6 +20,8 @@ public class Project {
     
     private String name;
 
+    private String description;
+
     @OneToMany(mappedBy = "project",fetch = FetchType.EAGER)
     private List<Task> tasks ;
 

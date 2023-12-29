@@ -14,8 +14,9 @@ import java.util.Set;
 public class ProjectDTO {
     private Long id;
     private String name;
+    private String description;
     private List<TaskDTO> tasks;
 
-   // private List<MemberDTO> members;
+    //private List<MemberDTO> members;
 
 }
