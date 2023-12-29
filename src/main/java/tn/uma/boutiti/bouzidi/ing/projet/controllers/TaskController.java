@@ -2,6 +2,7 @@ package tn.uma.boutiti.bouzidi.ing.projet.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
@@ -190,12 +191,7 @@ public class TaskController {
         } else {
             return ResponseEntity.ok().body(filteredTasks);
         }
-    }
-    @GetMapping("/labels")
-    public ResponseEntity<Map<Label, Long>> getTaskCountByLabelInProject(@PathVariable Long projectId) {
-        Map<Label, Long> taskCounts = taskService.countTasksByProjectId(projectId);
-        return ResponseEntity.ok().body(taskCounts);
-    }
+    }    
     
     @GetMapping("/search")
     public ResponseEntity<List<TaskDTO>> searchTaskByName(
@@ -227,5 +223,26 @@ public class TaskController {
         );
         return ResponseEntity.ok().body(tasks);
     }
+    @GetMapping("/countLabelsForProject")
+    public ResponseEntity<Map<String, Long>> countLabelsForProject(@RequestParam Long projectId) {
+        Map<String, Long> labelCounts = taskService.countLabelsForProject(projectId);
 
+        if (labelCounts.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok().body(labelCounts);
+        }
+    }
+    @GetMapping("/getByStatusAndMemberId")
+    public ResponseEntity<List<TaskDTO>> getTasksByStatusAndMember(
+            @RequestParam String status,
+            @RequestParam Long memberId) {
+        try {
+            List<TaskDTO> tasks = taskService.getTasksByStatusAndMembers_Id(status, memberId);
+            return ResponseEntity.ok(tasks);
+        } catch (Exception e) {
+            // Handle exceptions and return an appropriate response
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
 }

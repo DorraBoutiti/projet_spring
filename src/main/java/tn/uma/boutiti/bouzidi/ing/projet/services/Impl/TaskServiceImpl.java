@@ -3,11 +3,13 @@ package tn.uma.boutiti.bouzidi.ing.projet.services.Impl;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.mapper.TaskMapper;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Label;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Task;
+import tn.uma.boutiti.bouzidi.ing.projet.repository.LabelRepository;
 import tn.uma.boutiti.bouzidi.ing.projet.repository.TaskRepository;
 import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 
@@ -27,7 +29,11 @@ public class TaskServiceImpl implements TaskService {
     private TaskRepository taskRepository;
 
     @Autowired
+    private LabelRepository labelRepository;
+
+    @Autowired
     private TaskMapper taskMapper;
+    
 
     @Override
     public TaskDTO save(TaskDTO taskDTO) {
@@ -90,7 +96,7 @@ public class TaskServiceImpl implements TaskService {
     public List<TaskDTO> getTasksByLabelFiltred(Long labelId) {
         LocalDate currentDate = LocalDate.now();
         List<Task> tasks = taskRepository.findByLabelsIdAndDueDateGreaterThan(labelId, currentDate); 
-return tasks.stream()
+        return tasks.stream()
                 .map(taskMapper::toDto) 
                 .collect(Collectors.toList());
     }
@@ -137,11 +143,7 @@ return tasks.stream()
                 .map(taskMapper::toDto) 
                 .collect(Collectors.toList());
     }
-	@Override
-    public Map<Label, Long> countTasksByProjectId(Long projectId) {
-        return taskRepository.countTasksByProjectId(projectId);
-    }
-	
+		
 	@Override
 	public List<TaskDTO> searchTasksByName(String keyword) {
 		List<Task> tasks =taskRepository.findByLabels_NameContainingOrDescriptionContainingOrTitleContainingOrProject_NameContaining(
@@ -165,5 +167,22 @@ return tasks.stream()
 	    );
 	    return taskMapper.toDto(tasks);
 	}
+    @Override
+	public Map<String, Long> countLabelsForProject(Long projectId) {
+	    List<Object[]> labelCounts = taskRepository.countTasksByProjectId(projectId);
 
+	    Map<String, Long> countsMap = new HashMap<>();
+
+	    for (Object[] obj : labelCounts) {
+	        String labelName = (String) obj[0];
+	        Long count = (Long) obj[1];
+	        countsMap.put(labelName, count);
+	    }
+
+	    return countsMap;
+	}
+    @Override
+	public List<TaskDTO> getTasksByStatusAndMembers_Id(String status, Long memberId) {
+		 return taskMapper.toDto(taskRepository.findByStatusAndMembers_Id(status, memberId));
+	}
 }

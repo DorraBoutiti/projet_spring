@@ -15,6 +15,7 @@ import tn.uma.boutiti.bouzidi.ing.projet.repository.TaskRepository;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.context.annotation.Bean;
@@ -82,6 +83,8 @@ public class Noello1Application implements CommandLineRunner {
         task1.setStartDate(LocalDate.now());
         task1.setDueDate(LocalDate.now().plusDays(7));
         task1.setCompleted(false);
+        task1.setStatus("Done");
+
 
         Task task2 = new Task();
         task2.setTitle("Task 2");
@@ -89,6 +92,8 @@ public class Noello1Application implements CommandLineRunner {
         task2.setStartDate(LocalDate.now());
         task2.setDueDate(LocalDate.now().plusDays(7));
         task2.setCompleted(false);
+        task2.setStatus("Done");
+
 
         // Create two Labels
         Label label1 = new Label();
@@ -106,7 +111,9 @@ public class Noello1Application implements CommandLineRunner {
         Set<Task> tasks = new HashSet<>(Arrays.asList(task1, task2));
         label1.setTasks(tasks);
         label2.setTasks(tasks);
-
+        
+        task1.setMembers(Arrays.asList(member1, member2));
+        task2.setMembers(Collections.singletonList(member1));
         // Save entities
         memberRepository.saveAll(Arrays.asList(member1, member2));
         projectRepository.save(project);
