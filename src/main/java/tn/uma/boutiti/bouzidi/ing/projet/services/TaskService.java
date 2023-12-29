@@ -22,10 +22,10 @@ public interface TaskService {
 	List<TaskDTO> getTasksByDueDate(LocalDate dueDate);
 	List<TaskDTO> getTasksByDueDateAndProjectSortedByDueDateDescending(LocalDate dueDate, Long projectId);
 	List<TaskDTO> getTasksByStartDateAndProjectSortedByStartDateAscending(LocalDate startDate, Long projectId);
-	List<TaskDTO> getTasksByCompletedAndProjectSortedByDueDateAscending(Boolean completed, Long projectId);
-	Map<Label, Long> countTasksByProjectId(Long projectId);		
+	List<TaskDTO> getTasksByCompletedAndProjectSortedByDueDateAscending(Boolean completed, Long projectId);	
 	List<TaskDTO> searchTasksByName(String keyword);
-	 List<TaskDTO> filter(List<Long> labelIds, Long projectId, String keyword, Boolean completed,
+	List<TaskDTO> filter(List<Long> labelIds, Long projectId, String keyword, Boolean completed,
 		        LocalDate minStartDate, LocalDate maxStartDate, LocalDate minDueDate, LocalDate maxDueDate);
-	 List<TaskDTO> getTasksByStatusAndMembers_Id(String status,Long memberId);
+	Map<String, Long> countLabelsForProject(Long projectId);
+	List<TaskDTO> getTasksByStatusAndMembers_Id(String status,Long memberId);
 }

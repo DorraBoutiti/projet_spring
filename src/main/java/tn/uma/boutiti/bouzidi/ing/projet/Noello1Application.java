@@ -94,6 +94,7 @@ public class Noello1Application implements CommandLineRunner {
         task2.setCompleted(false);
         task2.setStatus("Done");
 
+
         // Create two Labels
         Label label1 = new Label();
         label1.setName("Label 1");
