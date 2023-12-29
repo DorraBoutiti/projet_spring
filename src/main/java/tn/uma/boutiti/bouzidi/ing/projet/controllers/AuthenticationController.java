@@ -1,7 +1,6 @@
 package tn.uma.boutiti.bouzidi.ing.projet.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.AuthReqDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.AuthResDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.RegisterRequestDTO;
-import tn.uma.boutiti.bouzidi.ing.projet.exceptions.UsernameAlreadyExistsException;
 import tn.uma.boutiti.bouzidi.ing.projet.services.AuthenticationService;
 
 @RestController

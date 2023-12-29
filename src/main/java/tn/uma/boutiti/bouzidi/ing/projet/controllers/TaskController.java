@@ -191,12 +191,7 @@ public class TaskController {
         } else {
             return ResponseEntity.ok().body(filteredTasks);
         }
-    }
-    @GetMapping("/labels")
-    public ResponseEntity<Map<Label, Long>> getTaskCountByLabelInProject(@PathVariable Long projectId) {
-        Map<Label, Long> taskCounts = taskService.countTasksByProjectId(projectId);
-        return ResponseEntity.ok().body(taskCounts);
-    }
+    }    
     
     @GetMapping("/search")
     public ResponseEntity<List<TaskDTO>> searchTaskByName(
@@ -228,7 +223,16 @@ public class TaskController {
         );
         return ResponseEntity.ok().body(tasks);
     }
-    
+    @GetMapping("/countLabelsForProject")
+    public ResponseEntity<Map<String, Long>> countLabelsForProject(@RequestParam Long projectId) {
+        Map<String, Long> labelCounts = taskService.countLabelsForProject(projectId);
+
+        if (labelCounts.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok().body(labelCounts);
+        }
+    }
     @GetMapping("/getByStatusAndMemberId")
     public ResponseEntity<List<TaskDTO>> getTasksByStatusAndMember(
             @RequestParam String status,
@@ -241,5 +245,4 @@ public class TaskController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
-
 }
