@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Label;
 import tn.uma.boutiti.bouzidi.ing.projet.services.LabelService;
 import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 
@@ -225,23 +224,22 @@ public class TaskController {
         return ResponseEntity.ok().body(tasks);
     }
     @GetMapping("/countLabelsAndTasks")
-    public ResponseEntity<Map<String, Object>> countLabelsAndTasks(@RequestParam Long projectId) {
-        Map<String, Object> result = new HashMap<>();
-        
-        // Compter les étiquettes pour le projet
+    public ResponseEntity<Map<String, Long>> countLabelsAndTasks(@RequestParam Long projectId) {
         Map<String, Long> labelCounts = taskService.countLabelsForProject(projectId);
-        result.put("labelCounts", labelCounts);
 
         // Compter les tâches en cours et en retard
         Long tasksInProgressAndOverdue = taskService.getCountOfTasksInProgressAndOverdue();
-        result.put("tasksInProgressAndOverdue", tasksInProgressAndOverdue);
+        
+        // Ajouter le nombre de tâches en cours et en retard dans la Map des comptes d'étiquettes
+        labelCounts.put("tasksInProgressAndOverdue", tasksInProgressAndOverdue);
 
-        if (labelCounts.isEmpty() && tasksInProgressAndOverdue == 0) {
+        if (labelCounts.isEmpty()) {
             return ResponseEntity.noContent().build();
         } else {
-            return ResponseEntity.ok().body(result);
+            return ResponseEntity.ok().body(labelCounts);
         }
     }
+
 
     @GetMapping("/countLabelsForProject")
     public ResponseEntity<Map<String, Long>> countLabelsForProject(@RequestParam Long projectId) {
