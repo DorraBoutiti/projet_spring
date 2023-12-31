@@ -185,4 +185,9 @@ public class TaskServiceImpl implements TaskService {
 	public List<TaskDTO> getTasksByStatusAndMembers_Id(String status, Long memberId) {
 		 return taskMapper.toDto(taskRepository.findByStatusAndMembers_Id(status, memberId));
 	}
+    @Override
+    public Long getCountOfTasksInProgressAndOverdue() {
+        LocalDate currentDate = LocalDate.now();
+        return taskRepository.countByStatusAndDueDateBefore("in progress", currentDate);
+    }
 }
