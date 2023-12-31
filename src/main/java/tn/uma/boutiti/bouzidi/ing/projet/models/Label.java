@@ -1,6 +1,5 @@
 package tn.uma.boutiti.bouzidi.ing.projet.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,5 +21,4 @@ public class Label {
 
     @ManyToMany(mappedBy = "labels")
     private Set<Task> tasks = new HashSet<>();
-
 }

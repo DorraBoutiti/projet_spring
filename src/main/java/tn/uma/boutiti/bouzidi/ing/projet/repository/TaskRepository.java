@@ -58,5 +58,5 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 	            "GROUP BY l.name")
 	 List<Object[]> countTasksByProjectId(@Param("projectId") Long projectId);
 	 List<Task> findByStatusAndMembers_Id(String status,Long memberId);
-		
+	 Long countByStatusAndDueDateBefore(String status, LocalDate date);		
 }

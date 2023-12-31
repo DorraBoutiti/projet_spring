@@ -28,4 +28,5 @@ public interface TaskService {
 		        LocalDate minStartDate, LocalDate maxStartDate, LocalDate minDueDate, LocalDate maxDueDate);
 	Map<String, Long> countLabelsForProject(Long projectId);
 	List<TaskDTO> getTasksByStatusAndMembers_Id(String status,Long memberId);
+	Long getCountOfTasksInProgressAndOverdue();
 }

@@ -26,11 +26,8 @@ public class Task {
     private LocalDate dueDate;
     private boolean completed;
     private boolean archived;
-
     private String priority;
-
     private String status;
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
     		name = "task_users",
@@ -51,5 +48,4 @@ public class Task {
     @JsonIgnore
     @JoinColumn(name = "project_id")
     private Project project;
-
 }

@@ -12,6 +12,7 @@ import tn.uma.boutiti.bouzidi.ing.projet.services.LabelService;
 import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -223,6 +224,25 @@ public class TaskController {
         );
         return ResponseEntity.ok().body(tasks);
     }
+    @GetMapping("/countLabelsAndTasks")
+    public ResponseEntity<Map<String, Object>> countLabelsAndTasks(@RequestParam Long projectId) {
+        Map<String, Object> result = new HashMap<>();
+        
+        // Compter les étiquettes pour le projet
+        Map<String, Long> labelCounts = taskService.countLabelsForProject(projectId);
+        result.put("labelCounts", labelCounts);
+
+        // Compter les tâches en cours et en retard
+        Long tasksInProgressAndOverdue = taskService.getCountOfTasksInProgressAndOverdue();
+        result.put("tasksInProgressAndOverdue", tasksInProgressAndOverdue);
+
+        if (labelCounts.isEmpty() && tasksInProgressAndOverdue == 0) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok().body(result);
+        }
+    }
+
     @GetMapping("/countLabelsForProject")
     public ResponseEntity<Map<String, Long>> countLabelsForProject(@RequestParam Long projectId) {
         Map<String, Long> labelCounts = taskService.countLabelsForProject(projectId);
@@ -232,6 +252,11 @@ public class TaskController {
         } else {
             return ResponseEntity.ok().body(labelCounts);
         }
+    }
+    @GetMapping("/countInProgressAndOverdue")
+    public ResponseEntity<Long> getCountOfTasksInProgressAndOverdue() {
+        Long count = taskService.getCountOfTasksInProgressAndOverdue();
+        return ResponseEntity.ok(count);
     }
     @GetMapping("/getByStatusAndMemberId")
     public ResponseEntity<List<TaskDTO>> getTasksByStatusAndMember(
