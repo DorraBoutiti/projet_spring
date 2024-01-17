@@ -5,12 +5,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.MemberDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.ProjectDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.exceptions.MemberNotFoundException;
 import tn.uma.boutiti.bouzidi.ing.projet.mapper.MemberMapper;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Role;
 import tn.uma.boutiti.bouzidi.ing.projet.repository.MemberRepository;
+import tn.uma.boutiti.bouzidi.ing.projet.repository.ProjectRepository;
 import tn.uma.boutiti.bouzidi.ing.projet.services.MemberService;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +29,9 @@ public class MemberServiceImpl implements MemberService {
 
     @Autowired
     private MemberMapper memberMapper;
+    
+    @Autowired
+    private ProjectRepository projectRepository;
 
 
     @Override
@@ -75,6 +83,42 @@ public class MemberServiceImpl implements MemberService {
         }
 
         return Collections.emptyList();
+    }
+
+
+    @Override
+    @Transactional 
+    public void deleteMemberAndRelatedEntities(Long memberId) {
+        Optional<Member> member = memberRepository.findById(memberId); 
+
+        if (member != null) {
+        	Member m = member.get();
+        	//m.setProjects(new ArrayList<>());
+            //List<Project> projects = m.getProjects(); 
+
+            //for (Project project : projects) {                
+            //    projectRepository.deleteById(project.getId());
+            //}
+        	//memberRepository.save(m);
+            memberRepository.deleteById(m.getId());
+        }
+    }
+
+
+    @Override
+    public void changeMemberPassword(Long memberId, String newPassword) {
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(() -> new MemberNotFoundException("Member not found"));
+        member.setPassword(newPassword);
+        memberRepository.save(member);
+    }
+    @Override
+    public void changeMemberRole(Long memberId, String newRole) {
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(() -> new MemberNotFoundException("Member not found"));
+
+        //member.setRole(newRole);
+        memberRepository.save(member);
     }
 
 }

@@ -2,16 +2,11 @@ package tn.uma.boutiti.bouzidi.ing.projet.config;
 
 
 
-import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.RequiredArgsConstructor;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
 import tn.uma.boutiti.bouzidi.ing.projet.repository.MemberRepository;
-
-import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;

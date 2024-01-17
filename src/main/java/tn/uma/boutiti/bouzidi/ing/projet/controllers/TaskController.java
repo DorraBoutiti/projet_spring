@@ -1,6 +1,9 @@
 package tn.uma.boutiti.bouzidi.ing.projet.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,12 +14,13 @@ import tn.uma.boutiti.bouzidi.ing.projet.services.LabelService;
 import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 @RestController
 @RequestMapping("/api/tasks")
+@CrossOrigin(origins = "http://localhost:3000")
 public class TaskController {
 
     private final TaskService taskService;
@@ -32,11 +36,38 @@ public class TaskController {
         TaskDTO task = taskService.save(taskDTO);
         return ResponseEntity.ok().body(task);
     }
-
     @GetMapping
     public ResponseEntity<List<TaskDTO>> findAllTasks() {
         List<TaskDTO> tasks = taskService.findAll();
         return ResponseEntity.ok().body(tasks);
+    }
+
+
+    @GetMapping("/{projectId}/tasks")
+    public ResponseEntity<List<TaskDTO>> getTasksByProject(
+            @PathVariable Long projectId) {
+        List<TaskDTO> tasks = taskService.getTasksByProject(projectId);
+
+        if (tasks.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok().body(tasks);
+        }
+    }
+
+    @GetMapping("/{projectId}/tasks-paginated")
+    public ResponseEntity<Page<TaskDTO>> getTasksByProjectPaginated(
+            @PathVariable Long projectId,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<TaskDTO> tasksPage = taskService.getTasksByProject(projectId, pageable);
+
+        if (tasksPage.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok().body(tasksPage);
+        }
     }
 
     @GetMapping("/{id}")
@@ -88,16 +119,7 @@ public class TaskController {
             return ResponseEntity.notFound().build();
         }
     }
-    @GetMapping("/{projectId}/tasks")
-    public ResponseEntity<List<TaskDTO>> getTasksByProject(@PathVariable Long projectId) {
-        List<TaskDTO> tasks = taskService.getTasksByProject(projectId);
-
-        if (tasks.isEmpty()) {
-            return ResponseEntity.noContent().build(); 
-        } else {
-            return ResponseEntity.ok().body(tasks);
-        }
-    }
+    
     @GetMapping("/label/{labelId}/tasks")
     public ResponseEntity<List<TaskDTO>> getTasksByLabel(@PathVariable Long labelId) {
         List<TaskDTO> tasks = taskService.getTasksByLabel(labelId);
@@ -114,6 +136,17 @@ public class TaskController {
         TaskDTO task = taskService.toTrash(id);
         return ResponseEntity.ok().body(task);
     }
+    @GetMapping("/in-trash")
+    public ResponseEntity<List<TaskDTO>> getTasksInTrash() {
+        List<TaskDTO> tasksInTrash = taskService.getTasksInTrash();
+
+        if (tasksInTrash.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok().body(tasksInTrash);
+        }
+    }
+
 
     @PutMapping("/{id}/to-list-task")
     public ResponseEntity<TaskDTO> toListTask(@PathVariable Long id) {
@@ -227,10 +260,7 @@ public class TaskController {
     public ResponseEntity<Map<String, Long>> countLabelsAndTasks(@RequestParam Long projectId) {
         Map<String, Long> labelCounts = taskService.countLabelsForProject(projectId);
 
-        // Compter les tâches en cours et en retard
         Long tasksInProgressAndOverdue = taskService.getCountOfTasksInProgressAndOverdue();
-        
-        // Ajouter le nombre de tâches en cours et en retard dans la Map des comptes d'étiquettes
         labelCounts.put("tasksInProgressAndOverdue", tasksInProgressAndOverdue);
 
         if (labelCounts.isEmpty()) {
@@ -266,6 +296,19 @@ public class TaskController {
         } catch (Exception e) {
             // Handle exceptions and return an appropriate response
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+    @GetMapping("/trash")
+    public ResponseEntity<Page<TaskDTO>> getTasksInTrash(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<TaskDTO> tasksPage = taskService.getTasksInTrash(pageable);
+
+        if (tasksPage.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok().body(tasksPage);
         }
     }
 }

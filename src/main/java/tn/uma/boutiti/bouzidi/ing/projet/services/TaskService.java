@@ -6,6 +6,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 
 public interface TaskService {
 
@@ -28,5 +31,8 @@ public interface TaskService {
 		        LocalDate minStartDate, LocalDate maxStartDate, LocalDate minDueDate, LocalDate maxDueDate);
 	Map<String, Long> countLabelsForProject(Long projectId);
 	List<TaskDTO> getTasksByStatusAndMembers_Id(String status,Long memberId);
-	Long getCountOfTasksInProgressAndOverdue();
+	Long getCountOfTasksInProgressAndOverdue();	
+	List<TaskDTO> getTasksInTrash();
+	Page<TaskDTO> getTasksByProject(Long projectId, Pageable pageable);
+	Page<TaskDTO> getTasksInTrash(Pageable pageable);
 }
