@@ -245,6 +245,12 @@ public class TaskServiceImpl implements TaskService {
                 .map(taskMapper::toDto)
                 .collect(Collectors.toList());
     }
+
+	@Override
+	public List<TaskDTO> getTasksByStatusAndMembers_Id(String status, Long memberId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
  
 
 }

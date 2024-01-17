@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -210,7 +211,7 @@ public class TaskController {
     * @param projectId The ID of the project.
     * @return ResponseEntity containing the list of tasks for the specified project.
     */
-    @GetMapping("/{projectId}/tasks")
+    /*@GetMapping("/{projectId}/tasks")
     public ResponseEntity<List<TaskDTO>> getTasksByProject(final @PathVariable Long projectId) {
         final List<TaskDTO> tasks = taskService.getTasksByProject(projectId);
 
@@ -219,7 +220,7 @@ public class TaskController {
         } else {
             return ResponseEntity.ok().body(tasks);
         }
-    }
+    }*/
     
     /**
      * Retrieves tasks associated with the specified label ID.
@@ -397,6 +398,16 @@ public class TaskController {
     @GetMapping("/getByMemberId")
     public ResponseEntity<List<TaskDTO>> getTasksByMember(
 
+            @RequestParam Long memberId) {
+        try {
+            List<TaskDTO> tasks = taskService.getTasksByMembersId(memberId);
+            return ResponseEntity.ok(tasks);
+        } catch (Exception e) {
+            // Handle exceptions and return an appropriate response
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
 
     @GetMapping("/countInProgressAndOverdue")
     public ResponseEntity<Long> getCountOfTasksInProgressAndOverdue() {
@@ -434,7 +445,7 @@ public class TaskController {
         TaskDTO task = taskService.updateTaskStatus(request.getTaskId(), request.getStatus());
         return ResponseEntity.ok().body(task);
     }
-}
+
  
     @GetMapping("/trash")
     public ResponseEntity<Page<TaskDTO>> getTasksInTrash(
