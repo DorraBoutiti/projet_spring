@@ -13,7 +13,7 @@ import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
 import lombok.RequiredArgsConstructor;
-
+import static  tn.uma.boutiti.bouzidi.ing.projet.models.Role.USER;
 
 @Configuration
 @EnableWebSecurity
@@ -47,8 +47,17 @@ public class SecurityConfiguration {
                                 .requestMatchers(mvcMatcherBuilder.pattern("/h2-console/**")).permitAll()  
                                 .requestMatchers(mvcMatcherBuilder.pattern("/api/auth/**")).permitAll()  
                                .requestMatchers(mvcMatcherBuilder.pattern("/api/tasks/**")).permitAll()
-                               .anyRequest().permitAll()
-                               // .anyRequest().authenticated()
+                               .requestMatchers(mvcMatcherBuilder.pattern("/swagger-ui/**")).permitAll()
+                               .requestMatchers(mvcMatcherBuilder.pattern("/swagger-ui/index.html#/")).permitAll()
+                               .requestMatchers(mvcMatcherBuilder.pattern("/swagger-ui.html")).permitAll()
+                               .requestMatchers(mvcMatcherBuilder.pattern(" /v3/api-docs/**")).permitAll()
+                              
+                               .requestMatchers("/tasks/updateTaskLabels").hasAnyRole(USER.name())
+                               .requestMatchers("/tasks/getUserTasks").hasAnyRole(USER.name())
+                               .requestMatchers("/tasks/updateTaskStatus").hasAnyRole(USER.name())
+                             
+                              //.anyRequest().permitAll()
+                                .anyRequest().authenticated()
                 )
            
                 .authenticationProvider(authenticationProvider)

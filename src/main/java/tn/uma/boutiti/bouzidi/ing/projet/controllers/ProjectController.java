@@ -63,7 +63,15 @@ public class ProjectController {
         ProjectDTO project = projectService.save(projectDTO);
         return ResponseEntity.ok().body(project);
     }
-
+    @PutMapping
+    public ResponseEntity<ProjectDTO> updateProject(@RequestBody ProjectDTO projectDTO) {
+        if (projectDTO.getId() == null) {
+            return createProject(projectDTO);
+        }else {
+            ProjectDTO project = projectService.save(projectDTO);
+            return ResponseEntity.ok().body(project);
+        }
+    }
     /*@GetMapping
     public ResponseEntity<List<ProjectDTO>> findAllProjects() {
 
@@ -86,15 +94,7 @@ public class ProjectController {
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping
-    public ResponseEntity<ProjectDTO> updateProject(@RequestBody ProjectDTO projectDTO) {
-        if (projectDTO.getId() == null) {
-            return createProject(projectDTO);
-        }else {
-            ProjectDTO project = projectService.save(projectDTO);
-            return ResponseEntity.ok().body(project);
-        }
-    }
+    
        /*@PutMapping("/{projectId}/assignTask/{taskId}")
     public ResponseEntity<ProjectDTO> assignTaskToProject(@PathVariable Long projectId, @PathVariable Long taskId) {
         ProjectDTO project = projectService.findOne(projectId);
