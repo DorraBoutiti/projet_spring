@@ -1,5 +1,9 @@
 package tn.uma.boutiti.bouzidi.ing.projet.controllers;
 
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -7,9 +11,29 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
+
+import tn.uma.boutiti.bouzidi.ing.projet.dto.UpdateTaskRequest;
+import tn.uma.boutiti.bouzidi.ing.projet.services.LabelService;
+import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
+
+/**
+ * Controller class handling task-related endpoints.
+ */
+
 import tn.uma.boutiti.bouzidi.ing.projet.services.LabelService;
 import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 
@@ -18,29 +42,61 @@ import java.util.List;
 import java.util.Map;
 
 
+
 @RestController
 @RequestMapping("/api/tasks")
 @CrossOrigin(origins = "http://localhost:3000")
 public class TaskController {
 
+	 /**  the TaskService */
     private final TaskService taskService;
+    /**
+     * Autowired service for managing labels.
+     */
     @Autowired
     private LabelService labelService;
-
-    public TaskController(TaskService taskService) {
+    
+    /**
+     * Constructor for TaskController.
+     *
+     * @param taskService The service for managing tasks.
+     */
+    public TaskController(final TaskService taskService) {
         this.taskService = taskService;
     }
-
+    /**
+     * Endpoint for creating a new task.
+     *
+     * @param taskDTO The data transfer object representing the task to be created.
+     * @return ResponseEntity containing the created task.
+     */
     @PostMapping
-    public ResponseEntity<TaskDTO> createTask(@RequestBody TaskDTO taskDTO) {
-        TaskDTO task = taskService.save(taskDTO);
+    public ResponseEntity<TaskDTO> createTask(final @RequestBody TaskDTO taskDTO) {
+        final TaskDTO task = taskService.save(taskDTO);
         return ResponseEntity.ok().body(task);
     }
+
+
+    /**
+     * Endpoint for retrieving all tasks.
+     *
+     * @return ResponseEntity containing a list of all tasks.
+     */
+
+
     @GetMapping
     public ResponseEntity<List<TaskDTO>> findAllTasks() {
-        List<TaskDTO> tasks = taskService.findAll();
+        final List<TaskDTO> tasks = taskService.findAll();
         return ResponseEntity.ok().body(tasks);
     }
+
+    /**
+     * Endpoint for retrieving a specific task by ID.
+     *
+     * @param idTask The ID of the task to retrieve.
+     * @return ResponseEntity containing the requested task.
+     */
+
 
 
     @GetMapping("/{projectId}/tasks")
@@ -70,35 +126,57 @@ public class TaskController {
         }
     }
 
+
     @GetMapping("/{id}")
-    public ResponseEntity<TaskDTO> findOneTask(@PathVariable Long id) {
-        TaskDTO task = taskService.findOne(id);
+    public ResponseEntity<TaskDTO> findOneTask(final @PathVariable Long idTask) {
+        final TaskDTO task = taskService.findOne(idTask);
         return ResponseEntity.ok().body(task);
     }
-
+    /**
+     * Endpoint for deleting a specific task by ID.
+     *
+     * @param idTask The ID of the task to delete.
+     * @return ResponseEntity indicating the success of the deletion.
+     */
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
-        taskService.delete(id);
+    public ResponseEntity<Void> deleteTask(final @PathVariable Long idTask) {
+        taskService.delete(idTask);
         return ResponseEntity.ok().build();
     }
-
+    /**
+     * Endpoint for updating a task. 
+     * If the task ID is null,
+     *  a new task will be created.
+     *
+     * @param taskDTO The data transfer object representing the task to be updated.
+     * @return ResponseEntity containing the updated or created task.
+     */
     @PutMapping
-    public ResponseEntity<TaskDTO> updateTask(@RequestBody TaskDTO taskDTO) {
+    public ResponseEntity<TaskDTO> updateTask(final @RequestBody TaskDTO taskDTO) {
+    	 ResponseEntity<TaskDTO> response; 
         if (taskDTO.getId() == null) {
-            return createTask(taskDTO);
+        	response= createTask(taskDTO);
         }else {
-            TaskDTO task = taskService.save(taskDTO);
-            return ResponseEntity.ok().body(task);
+           final TaskDTO task = taskService.save(taskDTO);
+            response= ResponseEntity.ok().body(task);
         }
+        return response;
     }
 
+    /**
+     * Endpoint for assigning a label to a specific task.
+     *
+     * @param taskId  The ID of the task.
+     * @param labelId The ID of the label to assign.
+     * @return ResponseEntity containing the updated task.
+     */
     @PutMapping("/{taskId}/assignLabel/{labelId}")
-    public ResponseEntity<TaskDTO> assignLabelToTask(@PathVariable Long taskId, @PathVariable Long labelId) {
-        TaskDTO task = taskService.findOne(taskId);
-        LabelDTO label = labelService.findOne(labelId);
+    public ResponseEntity<TaskDTO> assignLabelToTask(final @PathVariable Long taskId,final @PathVariable Long labelId) {
+        final TaskDTO task = taskService.findOne(taskId);
+        final LabelDTO label = labelService.findOne(labelId);
 
         if (task != null && label != null) {
-            List<LabelDTO> taskLabels = task.getLabels();
+            final List<LabelDTO> taskLabels = task.getLabels();
             taskLabels.add(label);
             task.setLabels(taskLabels);
             taskService.save(task);
@@ -107,9 +185,15 @@ public class TaskController {
             return ResponseEntity.notFound().build();
         }
     }
+    /**
+     * Endpoint for marking a task as completed.
+     *
+     * @param taskId The ID of the task to mark as completed.
+     * @return ResponseEntity containing the updated task.
+     */
     @PutMapping("/{taskId}/markAsCompleted")
-    public ResponseEntity<TaskDTO> markTaskAsCompleted(@PathVariable Long taskId) {
-        TaskDTO task = taskService.findOne(taskId);
+    public ResponseEntity<TaskDTO> markTaskAsCompleted(final @PathVariable Long taskId) {
+        final TaskDTO task = taskService.findOne(taskId);
 
         if (task != null) {
             task.setCompleted(true);
@@ -119,10 +203,35 @@ public class TaskController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    /**
+    * Endpoint for retrieving tasks by project ID.
+    *
+    * @param projectId The ID of the project.
+    * @return ResponseEntity containing the list of tasks for the specified project.
+    */
+    @GetMapping("/{projectId}/tasks")
+    public ResponseEntity<List<TaskDTO>> getTasksByProject(final @PathVariable Long projectId) {
+        final List<TaskDTO> tasks = taskService.getTasksByProject(projectId);
+
+        if (tasks.isEmpty()) {
+            return ResponseEntity.noContent().build(); 
+        } else {
+            return ResponseEntity.ok().body(tasks);
+        }
+    }
     
+    /**
+     * Retrieves tasks associated with the specified label ID.
+     *
+     * @param labelId The ID of the label for which tasks are retrieved.
+     * @return ResponseEntity containing the list of tasks for the specified label.
+     */
+
+
     @GetMapping("/label/{labelId}/tasks")
-    public ResponseEntity<List<TaskDTO>> getTasksByLabel(@PathVariable Long labelId) {
-        List<TaskDTO> tasks = taskService.getTasksByLabel(labelId);
+    public ResponseEntity<List<TaskDTO>> getTasksByLabel(final @PathVariable Long labelId) {
+        final List<TaskDTO> tasks = taskService.getTasksByLabel(labelId);
 
         if (tasks.isEmpty()) {
             return ResponseEntity.noContent().build(); 
@@ -131,6 +240,7 @@ public class TaskController {
         }
     }
 
+    
     @PutMapping("/{id}/to-trash")
     public ResponseEntity<TaskDTO> toTrash(@PathVariable Long id) {
         TaskDTO task = taskService.toTrash(id);
@@ -171,7 +281,7 @@ public class TaskController {
         List<TaskDTO> filteredTasks = taskService.getTasksByLabelAndProject(labelId, projectId);
 
         if (filteredTasks.isEmpty()) {
-            return ResponseEntity.noContent().build(); 
+            return ResponseEntity.noContent().build();  
         } else {
             return ResponseEntity.ok().body(filteredTasks);
         }
@@ -186,6 +296,8 @@ public class TaskController {
             return ResponseEntity.ok().body(filteredTasks);
         }
     }
+    
+    
     @GetMapping("/filterByDueDateAndProject")
     public ResponseEntity<List<TaskDTO>> filterTasksByDueDateAndProject(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dueDate,
@@ -281,6 +393,11 @@ public class TaskController {
             return ResponseEntity.ok().body(labelCounts);
         }
     }
+
+    @GetMapping("/getByMemberId")
+    public ResponseEntity<List<TaskDTO>> getTasksByMember(
+
+
     @GetMapping("/countInProgressAndOverdue")
     public ResponseEntity<Long> getCountOfTasksInProgressAndOverdue() {
         Long count = taskService.getCountOfTasksInProgressAndOverdue();
@@ -289,15 +406,36 @@ public class TaskController {
     @GetMapping("/getByStatusAndMemberId")
     public ResponseEntity<List<TaskDTO>> getTasksByStatusAndMember(
             @RequestParam String status,
+
             @RequestParam Long memberId) {
         try {
-            List<TaskDTO> tasks = taskService.getTasksByStatusAndMembers_Id(status, memberId);
+            List<TaskDTO> tasks = taskService.getTasksByMembersId(memberId);
             return ResponseEntity.ok(tasks);
         } catch (Exception e) {
             // Handle exceptions and return an appropriate response
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+ 
+    @PutMapping("/updateTaskLabels")
+    public ResponseEntity<TaskDTO> updateTask(@RequestBody UpdateTaskRequest request) { 
+        TaskDTO task = taskService.updateTaskLabels(request.getTaskId(), request.getLabels());
+        return ResponseEntity.ok().body(task);
+    }
+    @GetMapping("/getUserTasks")
+    public ResponseEntity<List<TaskDTO>> getUserTasks(@AuthenticationPrincipal UserDetails userDetails) {
+        String username = userDetails.getUsername();
+        List<TaskDTO> tasks = taskService.getUserTasks(username);
+        return ResponseEntity.ok(tasks);
+    }
+    
+    @PutMapping("/updateTaskStatus")
+    public ResponseEntity<TaskDTO> updateTaskStatus(@RequestBody UpdateTaskRequest request) { 
+        TaskDTO task = taskService.updateTaskStatus(request.getTaskId(), request.getStatus());
+        return ResponseEntity.ok().body(task);
+    }
+}
+ 
     @GetMapping("/trash")
     public ResponseEntity<Page<TaskDTO>> getTasksInTrash(
             @RequestParam(defaultValue = "0") int page,
@@ -312,3 +450,4 @@ public class TaskController {
         }
     }
 }
+ 

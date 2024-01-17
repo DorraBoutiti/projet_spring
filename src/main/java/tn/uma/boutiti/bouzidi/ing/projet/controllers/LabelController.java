@@ -13,11 +13,23 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/labels")
+
+
+
+/***/
+public class LabelController { // NOPMD by Amine Bouzidi on 02/01/2024 22:54
+ 
+	
+	@Autowired
+	private LabelService labelService;
+
+
 @CrossOrigin(origins = "http://localhost:3000")
 public class LabelController {
 
     @Autowired
     private LabelService labelService;
+
 
     @PostMapping
     public ResponseEntity<LabelDTO> create(@RequestBody LabelDTO labelDTO) {

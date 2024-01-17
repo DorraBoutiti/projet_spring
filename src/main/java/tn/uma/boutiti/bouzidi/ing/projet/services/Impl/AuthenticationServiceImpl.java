@@ -2,8 +2,6 @@ package tn.uma.boutiti.bouzidi.ing.projet.services.Impl;
 
  
 
-import javax.naming.AuthenticationException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -11,13 +9,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import tn.uma.boutiti.bouzidi.ing.projet.config.JwtService;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.AuthReqDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.AuthResDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.RegisterRequestDTO;
-import tn.uma.boutiti.bouzidi.ing.projet.exceptions.UsernameAlreadyExistsException;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
 import tn.uma.boutiti.bouzidi.ing.projet.repository.MemberRepository;
 import tn.uma.boutiti.bouzidi.ing.projet.services.AuthenticationService;
@@ -26,43 +22,57 @@ import tn.uma.boutiti.bouzidi.ing.projet.services.AuthenticationService;
 @Service
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
-	 @Autowired 
-	  private  PasswordEncoder passwordEncoder;
-	 @Autowired
-	  private  MemberRepository repository;
-	 @Autowired
-	  private   JwtService jwtService;
-	 @Autowired
-	  private final AuthenticationManager authenticationManager;
-	 @Override
-	 public AuthResDTO register(RegisterRequestDTO request) {
-	     try {
-	         if (repository.findByUsername(request.getUserName()).isPresent()) {
-	        	  return AuthResDTO.builder()
-	 	                 .msg("Username already exists")
-	 	                 .build();
-	         }
 
-	         var member = Member.builder()
-	                 .username(request.getUserName())
-	                 .password(passwordEncoder.encode(request.getPassword()))
-	                 .role(request.getRole())
-	                 .build();
+	/** Used for encoding and decoding passwords */
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
-	         var savedUser = repository.save(member);
-	         var jwtToken = jwtService.generateToken(member);
+	/** Repository for accessing member data */
+	@Autowired
+	private MemberRepository repository;
 
-	         return AuthResDTO.builder()
-	                 .msg("User created successfully")
-	                 .accessToken(jwtToken)
-	                 .build();
-	     }   catch (Exception e) {
-	         
-	         return AuthResDTO.builder()
-	                 .msg("User creation failed")
-	                 .build();
-	     }
-	 }
+	/** Service for handling JSON Web Tokens (JWT) */
+	@Autowired
+	private JwtService jwtService;
+
+	/** Authentication manager for managing authentication process */
+	@Autowired
+	private final AuthenticationManager authenticationManager;
+	
+	/**
+	 * Registers a new user.
+	 */
+	@Override
+	public AuthResDTO register(RegisterRequestDTO request) {
+	    AuthResDTO response;
+	    System.out.println(request);
+	    try {
+	        if (repository.findByUsername(request.getUserName()).isPresent()) {
+	            response = AuthResDTO.builder()
+	                    .msg("Username already exists")
+	                    .build();
+	        } else {
+	          final  Member member = Member.builder()
+	                    .username(request.getUserName())
+	                    .password(passwordEncoder.encode(request.getPassword()))
+	                    .role(request.getRole())
+	                    .build();
+	          repository.save(member);
+	           final String jwtToken = jwtService.generateToken(member);
+
+	            response = AuthResDTO.builder()
+	                    .msg("User created successfully")
+	                    .accessToken(jwtToken)
+	                    .build();
+	            
+	        }
+	    } catch (Exception e) {
+	        response = AuthResDTO.builder()
+	                .msg("User creation failed")
+	                .build();
+	    }
+	    return response;
+	}
 
 
 @Override
@@ -90,7 +100,7 @@ public AuthResDTO authenticate(AuthReqDTO request) {
             .orElseThrow(); // Assuming user is present after successful authentication
 
     var jwtToken = jwtService.generateToken(user);
-    var refreshToken = jwtService.generateRefreshToken(user);
+  
 
     return AuthResDTO.builder()
             .msg("Login successfully")

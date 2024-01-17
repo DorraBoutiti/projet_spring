@@ -6,7 +6,7 @@ import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Task;
 
 
-@Mapper(componentModel = "spring", uses = {LabelMapper.class, ProjectMapper.class})
+@Mapper(componentModel = "spring", uses = {LabelMapper.class, ProjectMapper.class,})
 public interface TaskMapper extends EntityMapper<TaskDTO, Task> {
 
     @Mapping(source ="project.id", target = "projectId")
@@ -24,5 +24,6 @@ public interface TaskMapper extends EntityMapper<TaskDTO, Task> {
         task.setId(id);
         return task;
     }
+    
 
 }

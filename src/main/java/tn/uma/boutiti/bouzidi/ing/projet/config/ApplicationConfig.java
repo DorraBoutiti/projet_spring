@@ -5,6 +5,7 @@ package tn.uma.boutiti.bouzidi.ing.projet.config;
 import lombok.RequiredArgsConstructor;
 import tn.uma.boutiti.bouzidi.ing.projet.repository.MemberRepository;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,6 +17,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import lombok.RequiredArgsConstructor;
+import tn.uma.boutiti.bouzidi.ing.projet.repository.MemberRepository;
+
 
 @Configuration
 @RequiredArgsConstructor
@@ -25,7 +29,7 @@ public class ApplicationConfig {
 
   @Bean 
   public UserDetailsService userDetailsService() {
-    return username -> (  repository.findByUsername(username))
+    return username ->  repository.findByUsername(username)
         .orElseThrow(() -> new UsernameNotFoundException("User not found"));
   }
 

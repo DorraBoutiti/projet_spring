@@ -1,17 +1,10 @@
 package tn.uma.boutiti.bouzidi.ing.projet.services;
 
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
-import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
-import tn.uma.boutiti.bouzidi.ing.projet.exceptions.EntityNotFoundException;
 import tn.uma.boutiti.bouzidi.ing.projet.mapper.LabelMapper;
 import tn.uma.boutiti.bouzidi.ing.projet.mapper.TaskMapper;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Task;
 import tn.uma.boutiti.bouzidi.ing.projet.repository.TaskRepository;
 
 @Service

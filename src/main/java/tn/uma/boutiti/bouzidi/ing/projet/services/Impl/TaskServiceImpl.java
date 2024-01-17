@@ -1,27 +1,25 @@
 package tn.uma.boutiti.bouzidi.ing.projet.services.Impl;
 
-import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
-import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
-import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
-import tn.uma.boutiti.bouzidi.ing.projet.mapper.TaskMapper;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Label;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Task;
-import tn.uma.boutiti.bouzidi.ing.projet.repository.LabelRepository;
-import tn.uma.boutiti.bouzidi.ing.projet.repository.TaskRepository;
-import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
-
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import jakarta.transaction.Transactional;
+import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.mapper.TaskMapper;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Label;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Task;
+import tn.uma.boutiti.bouzidi.ing.projet.repository.LabelRepository;
+import tn.uma.boutiti.bouzidi.ing.projet.repository.TaskRepository;
+import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 
 @Service
 @Transactional
@@ -194,9 +192,44 @@ public class TaskServiceImpl implements TaskService {
 	    return countsMap;
 	}
     @Override
-	public List<TaskDTO> getTasksByStatusAndMembers_Id(String status, Long memberId) {
-		 return taskMapper.toDto(taskRepository.findByStatusAndMembers_Id(status, memberId));
+	public List<TaskDTO> getTasksByMembersId(Long memberId) {
+		 return taskMapper.toDto(taskRepository.findByMembers_Id(memberId));
 	}
+    @Override
+    public TaskDTO updateTaskLabels(Long id , List<Label> labels) {
+    	   Task task = taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
+    	   task.setLabels(labels);
+    		  task = taskRepository.save(task);
+        return taskMapper.toDto(task);
+    }
+
+	@Override
+	public List<TaskDTO> getUserTasks(String username) {
+		
+		 return taskMapper.toDto(taskRepository.findByMembers_Username(username));
+	}
+ 
+
+	@Override
+	public TaskDTO updateTaskStatus(Long taskId, String status) {
+		   Task task = taskRepository.findById(taskId).orElseThrow(() -> new RuntimeException("Task not found"));
+    	   task.setStatus(status);
+  
+    	   if ("inProgress".equals(status)) {
+    	      
+    	        task.setStartDate(LocalDate.now());
+    	    }
+
+    	    if ("completed".equals(status)) {
+    	      
+    	        task.setDueDate(LocalDate.now());
+    	    }
+    		  task = taskRepository.save(task);
+        return taskMapper.toDto(task);
+	}
+
+
+ 
     @Override
     public Long getCountOfTasksInProgressAndOverdue() {
         LocalDate currentDate = LocalDate.now();
@@ -212,5 +245,6 @@ public class TaskServiceImpl implements TaskService {
                 .map(taskMapper::toDto)
                 .collect(Collectors.toList());
     }
+ 
 
 }

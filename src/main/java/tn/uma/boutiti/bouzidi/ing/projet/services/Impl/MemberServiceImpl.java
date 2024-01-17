@@ -1,25 +1,36 @@
 package tn.uma.boutiti.bouzidi.ing.projet.services.Impl;
 
-import jakarta.transaction.Transactional;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import jakarta.transaction.Transactional;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.MemberDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.ProjectDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.exceptions.MemberNotFoundException;
 import tn.uma.boutiti.bouzidi.ing.projet.mapper.MemberMapper;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
+ 
+ 
 import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Role;
+ 
 import tn.uma.boutiti.bouzidi.ing.projet.repository.MemberRepository;
 import tn.uma.boutiti.bouzidi.ing.projet.repository.ProjectRepository;
 import tn.uma.boutiti.bouzidi.ing.projet.services.MemberService;
 
+ 
+ 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+ 
 @Service
 @Transactional
 public class MemberServiceImpl implements MemberService {

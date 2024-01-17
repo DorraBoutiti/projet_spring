@@ -14,27 +14,37 @@ import tn.uma.boutiti.bouzidi.ing.projet.dto.AuthResDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.RegisterRequestDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.services.AuthenticationService;
 
+/**
+ * Controller class handling authentication-related endpoints.
+ */
 @RestController
 @RequestMapping("/api/auth")
 @CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 public class AuthenticationController {
-	
-@Autowired
-  private  AuthenticationService service;
 
-@PostMapping("/register")
-public ResponseEntity<AuthResDTO> register(
-		  
-    @RequestBody RegisterRequestDTO request
-) throws Exception {
-	  System.out.println("hello fromm newyork");
-  return ResponseEntity.ok().body(service.register(request));
-}
-  @PostMapping("/authenticate")
-  public ResponseEntity<AuthResDTO> authenticate(
-      @RequestBody AuthReqDTO request
-  ) {
-    return ResponseEntity.ok(service.authenticate(request));
-  }
+    
+	 /** Injecting the AuthenticationService */
+    @Autowired
+    private AuthenticationService service;
+
+    
+    /**  End point for user registration. */
+    @PostMapping("/register")
+    public ResponseEntity<AuthResDTO> register(final  @RequestBody RegisterRequestDTO request ) throws Exception {
+    	System.out.println("register");
+      
+        return ResponseEntity.ok().body(service.register(request));
+    }
+
+    /**
+    End point for user authentication.
+     */
+    @PostMapping("/authenticate")
+    public ResponseEntity<AuthResDTO> authenticate(
+          final  @RequestBody AuthReqDTO request
+    ) {
+      
+        return ResponseEntity.ok(service.authenticate(request));
+    }
 }
