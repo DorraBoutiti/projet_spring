@@ -1,5 +1,6 @@
 package tn.uma.boutiti.bouzidi.ing.projet.models;
 
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,6 +9,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+
+import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,5 +29,4 @@ public class Label {
 
     @ManyToMany(mappedBy = "labels")
     private Set<Task> tasks = new HashSet<>();
-
 }

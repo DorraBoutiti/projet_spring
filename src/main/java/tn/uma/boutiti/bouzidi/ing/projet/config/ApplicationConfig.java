@@ -2,6 +2,10 @@ package tn.uma.boutiti.bouzidi.ing.projet.config;
 
 
 
+import lombok.RequiredArgsConstructor;
+import tn.uma.boutiti.bouzidi.ing.projet.repository.MemberRepository;
+
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -37,6 +37,5 @@ public class Project {
         joinColumns = @JoinColumn(name = "project_id"),
         inverseJoinColumns = @JoinColumn(name = "member_id")
     )
-    private List<Member> members;
-    
+    private List<Member> members;    
 }

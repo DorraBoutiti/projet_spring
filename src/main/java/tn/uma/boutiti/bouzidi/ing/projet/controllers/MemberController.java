@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.MemberDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.ProjectDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Role;
 import tn.uma.boutiti.bouzidi.ing.projet.services.MemberService;
 import tn.uma.boutiti.bouzidi.ing.projet.services.ProjectService;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/members")
+@CrossOrigin(origins = "http://localhost:3000")
 public class MemberController {
 
     @Autowired
@@ -45,9 +47,9 @@ public class MemberController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        memberService.delete(id);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<String> deleteMember(@PathVariable Long id) {
+        memberService.deleteMemberAndRelatedEntities(id);
+        return ResponseEntity.ok("Member and related entities deleted successfully");
     }
 
     @PutMapping
@@ -74,5 +76,20 @@ public class MemberController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    @PutMapping("/{memberId}/password")
+    public ResponseEntity<String> changePassword(
+            @PathVariable Long memberId,
+            @RequestBody String newPassword) {
+        System.out.print(newPassword);
+        String cleanedPassword = newPassword.replaceAll("^\"|\"$", "");
+        memberService.changeMemberPassword(memberId, cleanedPassword);
+        return ResponseEntity.ok("Password updated successfully");
+    }
+    @PutMapping("/{memberId}/role")
+    public ResponseEntity<String> changeRole(
+            @PathVariable Long memberId,
+            @RequestParam String newRole) {
+        memberService.changeMemberRole(memberId, newRole);
+        return ResponseEntity.ok("Role updated successfully");
+    }
 }

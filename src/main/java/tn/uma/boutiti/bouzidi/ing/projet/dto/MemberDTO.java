@@ -12,5 +12,7 @@ import lombok.NoArgsConstructor;
 public class MemberDTO {
     private Long id;
     private String username;
+    private String password;
+    private String role;
     private List<ProjectDTO> projects;
 }

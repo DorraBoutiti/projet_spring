@@ -8,6 +8,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
@@ -44,6 +46,18 @@ public class TaskServiceImpl implements TaskService {
     public List<TaskDTO> findAll() {
         return taskMapper.toDto(taskRepository.findAll());
         //        return taskRepository.findAll().stream().map(taskMapper::toDto).collect(java.util.stream.Collectors.toSet());
+    }
+    @Override
+    public Page<TaskDTO> getTasksByProject(Long projectId, Pageable pageable) {
+        Page<Task> tasksPage = taskRepository.findByProjectId(projectId, pageable);
+
+        return tasksPage.map(taskMapper::toDto);
+    }
+    @Override
+    public Page<TaskDTO> getTasksInTrash(Pageable pageable) {
+        Page<Task> tasksPage = taskRepository.findByArchivedTrue(pageable);
+
+        return tasksPage.map(taskMapper::toDto);
     }
 
     @Override
@@ -194,6 +208,7 @@ public class TaskServiceImpl implements TaskService {
 		
 		 return taskMapper.toDto(taskRepository.findByMembers_Username(username));
 	}
+ 
 
 	@Override
 	public TaskDTO updateTaskStatus(Long taskId, String status) {
@@ -214,5 +229,22 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 
+ 
+    @Override
+    public Long getCountOfTasksInProgressAndOverdue() {
+        LocalDate currentDate = LocalDate.now();
+        return taskRepository.countByStatusAndDueDateBefore("in progress", currentDate);
+    }
+    
+    @Override
+   public List<TaskDTO> getTasksInTrash() {
+        List<Task> tasksInTrash = taskRepository.findByArchivedTrue();
+
+        // Convert Task entities to DTOs if needed
+        return tasksInTrash.stream()
+                .map(taskMapper::toDto)
+                .collect(Collectors.toList());
+    }
+ 
 
 }
