@@ -1,10 +1,11 @@
 package tn.uma.boutiti.bouzidi.ing.projet.services;
 
-import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Label;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+
+import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Label;
 
 
 public interface TaskService {
@@ -27,5 +28,8 @@ public interface TaskService {
 	List<TaskDTO> filter(List<Long> labelIds, Long projectId, String keyword, Boolean completed,
 		        LocalDate minStartDate, LocalDate maxStartDate, LocalDate minDueDate, LocalDate maxDueDate);
 	Map<String, Long> countLabelsForProject(Long projectId);
-	List<TaskDTO> getTasksByStatusAndMembers_Id(String status,Long memberId);
+	List<TaskDTO> getTasksByMembersId(Long memberId);
+	TaskDTO updateTaskLabels (Long id , List<Label> labels) ;
+	List<TaskDTO> getUserTasks(String username);
+	TaskDTO updateTaskStatus(Long taskId, String status);
 }

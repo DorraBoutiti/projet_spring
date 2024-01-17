@@ -2,7 +2,6 @@ package tn.uma.boutiti.bouzidi.ing.projet.dto;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,4 +21,5 @@ public class TaskDTO {
     private Long projectId;
     private String projectName;
     private String status;
+    
 }

@@ -14,28 +14,28 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/projects")
 public class ProjectController {
-
+	
     @Autowired
     private  ProjectService projectService;
     @Autowired
     private TaskService taskService;
     
     @PostMapping
-    public ResponseEntity<ProjectDTO> createProject(@RequestBody ProjectDTO ProjectDTO) {
-        ProjectDTO Project = projectService.save(ProjectDTO);
-        return ResponseEntity.ok().body(Project);
+    public ResponseEntity<ProjectDTO> createProject(@RequestBody ProjectDTO projectDTO) {
+        ProjectDTO project = projectService.save(projectDTO);
+        return ResponseEntity.ok().body(project);
     }
 
     @GetMapping
     public ResponseEntity<List<ProjectDTO>> findAllProjects() {
-        List<ProjectDTO> Projects = projectService.findAll();
-        return ResponseEntity.ok().body(Projects);
+        List<ProjectDTO> projects = projectService.findAll();
+        return ResponseEntity.ok().body(projects);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProjectDTO> findOneProject(@PathVariable Long id) {
-        ProjectDTO Project = projectService.findOne(id);
-        return ResponseEntity.ok().body(Project);
+        ProjectDTO project = projectService.findOne(id);
+        return ResponseEntity.ok().body(project);
     }
 
     @DeleteMapping("/{id}")
@@ -45,12 +45,12 @@ public class ProjectController {
     }
 
     @PutMapping
-    public ResponseEntity<ProjectDTO> updateProject(@RequestBody ProjectDTO ProjectDTO) {
-        if (ProjectDTO.getId() == null) {
-            return createProject(ProjectDTO);
+    public ResponseEntity<ProjectDTO> updateProject(@RequestBody ProjectDTO projectDTO) {
+        if (projectDTO.getId() == null) {
+            return createProject(projectDTO);
         }else {
-            ProjectDTO Project = projectService.save(ProjectDTO);
-            return ResponseEntity.ok().body(Project);
+            ProjectDTO project = projectService.save(projectDTO);
+            return ResponseEntity.ok().body(project);
         }
     }
     @PutMapping("/{projectId}/assignTask/{taskId}")

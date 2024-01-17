@@ -1,10 +1,9 @@
 package tn.uma.boutiti.bouzidi.ing.projet.services;
 
+import java.util.List;
+
 import tn.uma.boutiti.bouzidi.ing.projet.dto.MemberDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.ProjectDTO;
-import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
-
-import java.util.List;
 
 
 public interface MemberService {

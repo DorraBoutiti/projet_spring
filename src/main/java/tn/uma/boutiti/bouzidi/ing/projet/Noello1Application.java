@@ -1,12 +1,13 @@
 package tn.uma.boutiti.bouzidi.ing.projet;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Label;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Project;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Role;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Task;
 import tn.uma.boutiti.bouzidi.ing.projet.repository.LabelRepository;
 import tn.uma.boutiti.bouzidi.ing.projet.repository.MemberRepository;
@@ -19,7 +20,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.context.annotation.Bean;
-
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -62,11 +62,16 @@ public class Noello1Application implements CommandLineRunner {
         // Create two Members
       Member member1 = new Member();
         member1.setUsername("JohnDoe");
-        member1.setPassword("password1");
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String rawPassword = "password1";
+        String encodedPassword = passwordEncoder.encode(rawPassword);
+        member1.setRole(Role.USER);
 
+        member1.setPassword(encodedPassword);
         Member member2 = new Member();
         member2.setUsername("JaneSmith");
-        member2.setPassword("password2");
+        member2.setPassword(passwordEncoder.encode("password2"));
+        member2.setRole(Role.ADMIN);
 
         // Create a Project
         Project project = new Project();
@@ -83,7 +88,7 @@ public class Noello1Application implements CommandLineRunner {
         task1.setStartDate(LocalDate.now());
         task1.setDueDate(LocalDate.now().plusDays(7));
         task1.setCompleted(false);
-        task1.setStatus("Done");
+        task1.setStatus("inProgress");
 
 
         Task task2 = new Task();
@@ -92,7 +97,7 @@ public class Noello1Application implements CommandLineRunner {
         task2.setStartDate(LocalDate.now());
         task2.setDueDate(LocalDate.now().plusDays(7));
         task2.setCompleted(false);
-        task2.setStatus("Done");
+        task2.setStatus("toDo");
 
 
         // Create two Labels
@@ -107,12 +112,13 @@ public class Noello1Application implements CommandLineRunner {
 
         task1.setProject(project);
         task2.setProject(project);
+        
 
         Set<Task> tasks = new HashSet<>(Arrays.asList(task1, task2));
         label1.setTasks(tasks);
         label2.setTasks(tasks);
         
-        task1.setMembers(Arrays.asList(member1, member2));
+        task1.setMembers(Arrays.asList(member1, member2));	
         task2.setMembers(Collections.singletonList(member1));
         // Save entities
         memberRepository.saveAll(Arrays.asList(member1, member2));

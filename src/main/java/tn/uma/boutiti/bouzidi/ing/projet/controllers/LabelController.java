@@ -10,8 +10,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/labels")
-public class LabelController {
 
+
+/***/
+public class LabelController { // NOPMD by Amine Bouzidi on 02/01/2024 22:54
+ 
+	
 	@Autowired
 	private LabelService labelService;
 

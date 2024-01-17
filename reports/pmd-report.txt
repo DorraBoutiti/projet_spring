@@ -1,0 +1,492 @@
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:27:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:30:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:33:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:36:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:39:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:41:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:41:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'args' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:46:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:47:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'corsConfiguration' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:56:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'urlBasedCorsConfigurationSource' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:56:	LongVariable:	LongVariable: Avoid excessively long variable names like urlBasedCorsConfigurationSource
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:63:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'member1' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:65:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'passwordEncoder' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:66:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'rawPassword' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:67:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'encodedPassword' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:71:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'member2' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:76:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'project' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:80:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'project2' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:84:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'task1' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:93:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'task2' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:103:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'label1' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:106:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'label2' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1Application.java:116:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'tasks' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:19:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:22:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:22:	ImmutableField:	ImmutableField: Field 'secretKey' may be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:24:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:24:	ImmutableField:	ImmutableField: Field 'jwtExpiration' may be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:24:	UseUnderscoresInNumericLiterals:	UseUnderscoresInNumericLiterals: Number 86400000 should separate every third digit with an underscore
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:26:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:26:	ImmutableField:	ImmutableField: Field 'refreshExpiration' may be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:26:	UseUnderscoresInNumericLiterals:	UseUnderscoresInNumericLiterals: Number 604800000 should separate every third digit with an underscore
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:28:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:28:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'token' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:32:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:32:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'claimsResolver' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:32:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'token' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:37:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:37:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'userDetails' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:41:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:42:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'extraClaims' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:43:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'userDetails' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:48:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:49:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'userDetails' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:55:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'extraClaims' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:56:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'userDetails' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:57:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'expiration' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:69:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:69:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'token' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:69:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'userDetails' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:74:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'token' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:78:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'token' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:82:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'token' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/JwtService.java:92:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'keyBytes' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/SecurityConfiguration.java:22:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/SecurityConfiguration.java:24:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/SecurityConfiguration.java:33:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/SecurityConfiguration.java:34:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/SecurityConfiguration.java:34:	LongVariable:	LongVariable: Avoid excessively long variable names like authenticationProvider
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/SecurityConfiguration.java:38:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/SecurityConfiguration.java:38:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'http' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/SecurityConfiguration.java:38:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'introspector' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/SecurityConfiguration.java:39:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'mvcMatcherBuilder' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/SecurityConfiguration.java:66:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/config/SecurityConfiguration.java:67:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/LabelController.java:13:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/LabelController.java:16:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/LabelController.java:20:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/LabelController.java:20:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'labelDTO' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/LabelController.java:26:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/LabelController.java:32:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/LabelController.java:32:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/LabelController.java:32:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/LabelController.java:38:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/LabelController.java:38:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/LabelController.java:38:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:15:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:18:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:20:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:24:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:24:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'memberDTO' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:25:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'member' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:30:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:31:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'members' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:36:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:36:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:36:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:37:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'member' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:42:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:42:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'username' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:43:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'listProject' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:48:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:48:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:48:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:54:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:54:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'memberDTO' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:56:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:58:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'member' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:63:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:63:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'memberId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:63:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'projectId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:64:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'member' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:65:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'project' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:68:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'memberProjects' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/MemberController.java:72:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:16:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:19:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:21:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:24:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:24:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'projectDTO' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:25:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'project' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:30:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:31:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'projects' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:36:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:36:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:36:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:37:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'project' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:42:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:42:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:42:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:48:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:48:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'projectDTO' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:50:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:52:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'project' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:57:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:57:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'projectId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:57:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'taskId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:58:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'project' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:59:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'task' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:61:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'projectTasks' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/ProjectController.java:65:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/TaskController.java:192:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/TaskController.java:198:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/controllers/TaskController.java:324:	AvoidCatchingGenericException:	AvoidCatchingGenericException: Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/AuthReqDTO.java:11:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/AuthReqDTO.java:12:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/AuthReqDTO.java:13:	CommentDefaultAccessModifier:	CommentDefaultAccessModifier: Missing commented default access modifier on field 'password'
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/AuthReqDTO.java:13:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/AuthResDTO.java:14:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/AuthResDTO.java:17:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/AuthResDTO.java:19:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/LabelDTO.java:10:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/LabelDTO.java:11:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/LabelDTO.java:11:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/LabelDTO.java:12:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/MemberDTO.java:12:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/MemberDTO.java:13:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/MemberDTO.java:13:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/MemberDTO.java:14:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/MemberDTO.java:15:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/ProjectDTO.java:12:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/ProjectDTO.java:13:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/ProjectDTO.java:13:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/ProjectDTO.java:14:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/ProjectDTO.java:15:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/ProjectDTO.java:16:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/RegisterRequestDTO.java:14:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/RegisterRequestDTO.java:16:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/RegisterRequestDTO.java:17:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/RegisterRequestDTO.java:18:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/TaskDTO.java:13:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/TaskDTO.java:14:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/TaskDTO.java:14:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/TaskDTO.java:15:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/TaskDTO.java:16:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/TaskDTO.java:17:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/TaskDTO.java:18:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/TaskDTO.java:19:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/TaskDTO.java:20:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/TaskDTO.java:21:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/TaskDTO.java:22:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/TaskDTO.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/UpdateTaskRequest.java:15:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/UpdateTaskRequest.java:16:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/UpdateTaskRequest.java:17:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/dto/UpdateTaskRequest.java:18:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/EntityNotFoundException.java:2:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/EntityNotFoundException.java:2:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/EntityNotFoundException.java:4:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/EntityNotFoundException.java:8:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/EntityNotFoundException.java:8:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'message' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/EntityNotFoundException.java:12:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/EntityNotFoundException.java:12:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'cause' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/EntityNotFoundException.java:12:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'message' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/ProjectNotFoundException.java:3:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/ProjectNotFoundException.java:3:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/ProjectNotFoundException.java:5:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/ProjectNotFoundException.java:5:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'message' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/UsernameAlreadyExistsException.java:3:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/UsernameAlreadyExistsException.java:3:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/UsernameAlreadyExistsException.java:5:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/exceptions/UsernameAlreadyExistsException.java:5:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'message' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/EntityMapper.java:6:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/EntityMapper.java:7:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/EntityMapper.java:7:	UnnecessaryModifier:	UnnecessaryModifier: Unnecessary modifier 'public' on method 'toEntity': the method is declared in an interface type
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/EntityMapper.java:9:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/EntityMapper.java:9:	UnnecessaryModifier:	UnnecessaryModifier: Unnecessary modifier 'public' on method 'toDto': the method is declared in an interface type
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/EntityMapper.java:11:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/EntityMapper.java:11:	UnnecessaryModifier:	UnnecessaryModifier: Unnecessary modifier 'public' on method 'toEntity': the method is declared in an interface type
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/EntityMapper.java:13:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/EntityMapper.java:13:	UnnecessaryModifier:	UnnecessaryModifier: Unnecessary modifier 'public' on method 'toDto': the method is declared in an interface type
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/LabelMapper.java:7:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/LabelMapper.java:9:	MissingOverride:	MissingOverride: The method 'toDto(Label)' is missing an @Override annotation.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/LabelMapper.java:11:	MissingOverride:	MissingOverride: The method 'toEntity(LabelDTO)' is missing an @Override annotation.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/LabelMapper.java:13:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/LabelMapper.java:13:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/LabelMapper.java:13:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/LabelMapper.java:15:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/LabelMapper.java:17:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'label' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/MemberMapper.java:8:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/MemberMapper.java:10:	MissingOverride:	MissingOverride: The method 'toDto(Member)' is missing an @Override annotation.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/MemberMapper.java:12:	MissingOverride:	MissingOverride: The method 'toEntity(MemberDTO)' is missing an @Override annotation.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/MemberMapper.java:14:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/MemberMapper.java:14:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/MemberMapper.java:14:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/MemberMapper.java:16:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/MemberMapper.java:18:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'member' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/ProjectMapper.java:8:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/ProjectMapper.java:10:	MissingOverride:	MissingOverride: The method 'toDto(Project)' is missing an @Override annotation.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/ProjectMapper.java:12:	MissingOverride:	MissingOverride: The method 'toEntity(ProjectDTO)' is missing an @Override annotation.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/ProjectMapper.java:14:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/ProjectMapper.java:14:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/ProjectMapper.java:14:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/ProjectMapper.java:16:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/ProjectMapper.java:18:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'project' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/TaskMapper.java:10:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/TaskMapper.java:14:	MissingOverride:	MissingOverride: The method 'toDto(Task)' is missing an @Override annotation.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/TaskMapper.java:17:	MissingOverride:	MissingOverride: The method 'toEntity(TaskDTO)' is missing an @Override annotation.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/TaskMapper.java:19:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/TaskMapper.java:19:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/TaskMapper.java:19:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/TaskMapper.java:21:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/mapper/TaskMapper.java:23:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'task' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Label.java:18:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Label.java:21:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Label.java:21:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Label.java:24:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Label.java:27:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Member.java:28:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Member.java:28:	MissingSerialVersionUID:	MissingSerialVersionUID: Classes implementing Serializable should set a serialVersionUID
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Member.java:32:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Member.java:32:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Member.java:34:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Member.java:35:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Member.java:38:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Member.java:41:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Member.java:44:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Permission.java:8:	CommentRequired:	CommentRequired: Enum comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Permission.java:18:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Project.java:22:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Project.java:25:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Project.java:25:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Project.java:27:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Project.java:29:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Project.java:32:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Project.java:40:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Role.java:14:	CommentRequired:	CommentRequired: Enum comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Role.java:24:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Role.java:26:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Role.java:27:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'authorities' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:26:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:26:	ShortClassName:	ShortClassName: Avoid short class names like Task
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:29:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:29:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:31:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:32:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:33:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:34:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:35:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:36:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:38:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:40:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:48:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:56:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/models/Task.java:61:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/LabelRepository.java:12:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/LabelRepository.java:13:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/LabelRepository.java:14:	MissingOverride:	MissingOverride: The method 'findById(Long)' is missing an @Override annotation.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/LabelRepository.java:14:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/MemberRepository.java:11:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/MemberRepository.java:13:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/ProjectRepository.java:9:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:15:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:15:	TooManyMethods:	TooManyMethods: This class has too many methods, consider refactoring it.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:16:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:17:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:18:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:19:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:20:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:21:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:22:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:23:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:24:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:25:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:25:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'findByLabels_NameContainingOrDescriptionContainingOrTitleContainingOrProject_NameContaining' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:25:	UseObjectForClearerAPI:	UseObjectForClearerAPI: Rather than using a lot of String arguments, consider using a container object for those values.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:26:	LongVariable:	LongVariable: Avoid excessively long variable names like descriptionKeyword
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:40:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:40:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'findByLabels_IdInAndProject_IdAndTitleContainingOrDescriptionContaining' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:56:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:57:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:57:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'findByMembers_Id' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:58:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/repository/TaskRepository.java:58:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'findByMembers_Username' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/AuthenticationService.java:7:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/AuthenticationService.java:8:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/AuthenticationService.java:8:	UnnecessaryModifier:	UnnecessaryModifier: Unnecessary modifier 'public' on method 'register': the method is declared in an interface type
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/AuthenticationService.java:9:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/AuthenticationService.java:9:	UnnecessaryModifier:	UnnecessaryModifier: Unnecessary modifier 'public' on method 'authenticate': the method is declared in an interface type
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/AuthenticationServiceImpl.java:1:	PackageCase:	PackageCase: Package name contains upper case characters
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/AuthenticationServiceImpl.java:24:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/AuthenticationServiceImpl.java:40:	LongVariable:	LongVariable: Avoid excessively long variable names like authenticationManager
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/AuthenticationServiceImpl.java:46:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/AuthenticationServiceImpl.java:67:	AvoidCatchingGenericException:	AvoidCatchingGenericException: Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/AuthenticationServiceImpl.java:77:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'request' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/AuthenticationServiceImpl.java:87:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/AuthenticationServiceImpl.java:90:	AvoidCatchingGenericException:	AvoidCatchingGenericException: Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/AuthenticationServiceImpl.java:92:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/AuthenticationServiceImpl.java:97:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'user' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/AuthenticationServiceImpl.java:100:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'jwtToken' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/LabelServiceImpl.java:1:	PackageCase:	PackageCase: Package name contains upper case characters
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/LabelServiceImpl.java:17:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/LabelServiceImpl.java:20:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/LabelServiceImpl.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/LabelServiceImpl.java:26:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'labelDTO' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/LabelServiceImpl.java:38:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/LabelServiceImpl.java:38:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/LabelServiceImpl.java:39:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'label' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/LabelServiceImpl.java:44:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/LabelServiceImpl.java:44:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:1:	PackageCase:	PackageCase: Package name contains upper case characters
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:20:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:26:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:30:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'memberDTO' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:43:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:43:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:44:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'member' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:49:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:49:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:53:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:67:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'username' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:69:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'members' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:72:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'member' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/MemberServiceImpl.java:74:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/ProjectServiceImpl.java:1:	PackageCase:	PackageCase: Package name contains upper case characters
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/ProjectServiceImpl.java:17:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/ProjectServiceImpl.java:20:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/ProjectServiceImpl.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/ProjectServiceImpl.java:27:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'projectDTO' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/ProjectServiceImpl.java:39:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/ProjectServiceImpl.java:39:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/ProjectServiceImpl.java:40:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'project' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/ProjectServiceImpl.java:45:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/ProjectServiceImpl.java:45:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:1:	PackageCase:	PackageCase: Package name contains upper case characters
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:24:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:24:	TooManyMethods:	TooManyMethods: This class has too many methods, consider refactoring it.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:27:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:30:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:33:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:37:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'taskDTO' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:46:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:50:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:50:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:51:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'task' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:56:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:56:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:61:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'projectId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:62:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'tasks' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:70:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'labelId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:71:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'tasks' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:79:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:79:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:80:	AvoidDuplicateLiterals:	AvoidDuplicateLiterals: The String literal "Task not found" appears 4 times in this file; the first occurrence is on line 80
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:87:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:87:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:94:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'labelId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:95:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'currentDate' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:96:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'tasks' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:102:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'labelId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:102:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'projectId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:103:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'currentDate' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:104:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'tasks' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:112:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'dueDate' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:113:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'tasks' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:120:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'dueDate' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:120:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'projectId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:121:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:121:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'tasks' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:128:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'projectId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:128:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'startDate' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:129:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:129:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'tasks' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:137:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'completed' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:137:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'projectId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:138:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:138:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'tasks' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:146:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'keyword' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:147:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'tasks' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:153:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'completed' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:153:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'keyword' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:153:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'labelIds' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:153:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'projectId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:154:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'maxDueDate' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:154:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'maxStartDate' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:154:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'minDueDate' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:154:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'minStartDate' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:155:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'tasks' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:169:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'projectId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:170:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'labelCounts' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:171:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'countsMap' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:171:	UseConcurrentHashMap:	UseConcurrentHashMap: If you run in Java5 or newer and have concurrent access, you should use the ConcurrentHashMap implementation
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:172:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'obj' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:173:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'labelName' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:174:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'count' could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:181:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'memberId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:185:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:185:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'labels' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:185:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:193:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'username' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:199:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'status' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:199:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'taskId' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:203:	AvoidLiteralsInIfCondition:	AvoidLiteralsInIfCondition: Avoid using literals in if statements
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/Impl/TaskServiceImpl.java:208:	AvoidLiteralsInIfCondition:	AvoidLiteralsInIfCondition: Avoid using literals in if statements
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/LabelService.java:8:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/LabelService.java:9:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/LabelService.java:10:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/LabelService.java:11:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/LabelService.java:11:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/LabelService.java:12:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/LabelService.java:12:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/MemberService.java:9:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/MemberService.java:12:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/MemberService.java:15:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/MemberService.java:17:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/MemberService.java:17:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/MemberService.java:19:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/MemberService.java:19:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/MemberService.java:21:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/MemberService.java:21:	UnnecessaryModifier:	UnnecessaryModifier: Unnecessary modifier 'public' on method 'getAllProjectsAndTasksByUsername': the method is declared in an interface type
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/ProjectService.java:7:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/ProjectService.java:8:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/ProjectService.java:9:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/ProjectService.java:10:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/ProjectService.java:10:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/ProjectService.java:11:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/ProjectService.java:11:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskDisplayService.java:12:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskDisplayService.java:14:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskDisplayService.java:15:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskDisplayService.java:18:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskDisplayService.java:18:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'taskMapper' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskDisplayService.java:18:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'taskRepository' is not assigned and could be declared final
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskDisplayService.java:18:	UnusedFormalParameter:	UnusedFormalParameter: Avoid unused constructor parameters such as 'labelMapper'.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskDisplayService.java:25:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskDisplayService.java:28:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:11:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:11:	TooManyMethods:	TooManyMethods: This class has too many methods, consider refactoring it.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:13:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:14:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:15:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:15:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:16:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:16:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:17:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:18:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:19:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:19:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:20:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:20:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:21:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:22:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:23:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:24:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:25:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:26:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:27:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:28:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:30:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:31:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:32:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:32:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:33:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/services/TaskService.java:34:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/tests/TaskTest.java:3:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/tests/TaskTest.java:3:	TestClassWithoutTestCases:	TestClassWithoutTestCases: The class 'TaskTest' might be a test class, but it contains no test cases.
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/tests/UserTest.java:3:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/tn/uma/boutiti/bouzidi/ing/projet/tests/UserTest.java:3:	TestClassWithoutTestCases:	TestClassWithoutTestCases: The class 'UserTest' might be a test class, but it contains no test cases.
+src/test/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1ApplicationTests.java:7:	CommentRequired:	CommentRequired: Class comments are required
+src/test/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1ApplicationTests.java:10:	JUnitTestsShouldIncludeAssert:	JUnitTestsShouldIncludeAssert: JUnit tests should include assert() or fail()
+src/test/java/tn/uma/boutiti/bouzidi/ing/projet/Noello1ApplicationTests.java:10:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: Document empty method body

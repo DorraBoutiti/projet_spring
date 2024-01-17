@@ -1,19 +1,21 @@
 package tn.uma.boutiti.bouzidi.ing.projet.config;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.Decoders;
-import io.jsonwebtoken.security.Keys;
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Member;
+import tn.uma.boutiti.bouzidi.ing.projet.models.Role;
 
 @Service
 public class JwtService {
@@ -34,8 +36,14 @@ public class JwtService {
     return claimsResolver.apply(claims);
   }
 
-  public String generateToken(UserDetails userDetails) {
-    return generateToken(new HashMap<>(), userDetails);
+  public String generateToken(Member userDetails) {
+	  Role role = userDetails.getRole();
+
+	    // Add role to the extraClaims
+	    Map<String, Object> extraClaims = new HashMap<>();
+	    extraClaims.put("role", role.name());
+	    
+    return generateToken(extraClaims, userDetails);
   }
 
   public String generateToken(
@@ -68,7 +76,7 @@ public class JwtService {
 
   public boolean isTokenValid(String token, UserDetails userDetails) {
     final String username = extractUsername(token);
-    return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
+    return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
   }
 
   private boolean isTokenExpired(String token) {
