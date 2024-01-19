@@ -2,6 +2,7 @@ package tn.uma.boutiti.bouzidi.ing.projet.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -23,6 +24,7 @@ public class MemberController {
     private  MemberService memberService;
     @Autowired
     private ProjectService projectService;
+    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 
     @PostMapping
@@ -82,10 +84,12 @@ public class MemberController {
     @PutMapping("/{memberId}/password")
     public ResponseEntity<String> changePassword(
             @PathVariable Long memberId,
-            @RequestBody String newPassword) {
-        System.out.print(newPassword);
-        String cleanedPassword = newPassword.replaceAll("^\"|\"$", "");
-        memberService.changeMemberPassword(memberId, cleanedPassword);
+            @RequestParam String newPassword) {
+        System.out.print("newPassword "+newPassword);
+        String encodedPassword = passwordEncoder.encode(newPassword);
+     //   String cleanedPassword = newPassword.replaceAll("^\"|\"$", "");
+        
+        memberService.changeMemberPassword(memberId, encodedPassword);
         return ResponseEntity.ok("Password updated successfully");
     }
     @PutMapping("/{memberId}/role")

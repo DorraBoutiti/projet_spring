@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
 
@@ -35,13 +33,6 @@ import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
 /**
  * Controller class handling task-related endpoints.
  */
-
-import tn.uma.boutiti.bouzidi.ing.projet.services.LabelService;
-import tn.uma.boutiti.bouzidi.ing.projet.services.TaskService;
-
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Map;
 
 
 
@@ -141,7 +132,7 @@ public class TaskController {
      * @param idTask The ID of the task to delete.
      * @return ResponseEntity indicating the success of the deletion.
      */
-    @DeleteMapping("/tasks/{id}")
+    @DeleteMapping("/tasks/{idTask}")
     public ResponseEntity<Void> deleteTask(final @PathVariable Long idTask) {
         taskService.delete(idTask);
         return ResponseEntity.ok().build();

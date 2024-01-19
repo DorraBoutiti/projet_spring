@@ -49,13 +49,13 @@ public class LabelController {
         return ResponseEntity.ok().body(label);
     }
 
-    @DeleteMapping("/api/labels	/{id}")
+    @DeleteMapping("/api/labels/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         labelService.delete(id);
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/api/labels/{id}")
     public ResponseEntity<LabelDTO> update(@PathVariable Long id, @RequestBody LabelDTO updatedLabelDTO) {
         LabelDTO label = labelService.findOne(id);
         if (label == null) {

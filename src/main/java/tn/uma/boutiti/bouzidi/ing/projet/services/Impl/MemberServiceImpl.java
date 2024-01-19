@@ -127,8 +127,13 @@ public class MemberServiceImpl implements MemberService {
     public void changeMemberRole(Long memberId, String newRole) {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new MemberNotFoundException("Member not found"));
-
-        //member.setRole(newRole);
+        if(newRole.equals("USER")){
+        	member.setRole(Role.USER);
+        }else if (newRole.equals("ADMIN"))
+        {
+        	member.setRole(Role.ADMIN);	
+        }       
+        
         memberRepository.save(member);
     }
 
