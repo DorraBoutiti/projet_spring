@@ -6,6 +6,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.ProjectDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.TaskDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.services.ProjectService;
@@ -17,7 +19,8 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/projects")
-@CrossOrigin(origins = "http://localhost:3000")
+ 
+@SecurityRequirement(name = "bearer-token")
 public class ProjectController {
 	
     @Autowired

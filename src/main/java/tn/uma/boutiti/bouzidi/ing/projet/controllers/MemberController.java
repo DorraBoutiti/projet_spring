@@ -3,6 +3,8 @@ package tn.uma.boutiti.bouzidi.ing.projet.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.MemberDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.ProjectDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.models.Role;
@@ -14,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/members")
 @CrossOrigin(origins = "http://localhost:3000")
+@SecurityRequirement(name = "bearer-token")
 public class MemberController {
 
     @Autowired

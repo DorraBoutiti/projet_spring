@@ -125,7 +125,7 @@ public class Noello1Application implements CommandLineRunner {
         projectRepository.save(project);
         projectRepository.save(project2);
         taskRepository.saveAll(Arrays.asList(task1, task2));
-        labelRepository.saveAll(Arrays.asList(label1, label2));
+        labelRepository.saveAll(Arrays.asList(label1, label2)); 
      }
 
 }

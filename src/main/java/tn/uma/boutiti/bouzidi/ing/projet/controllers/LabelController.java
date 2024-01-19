@@ -6,27 +6,30 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
+
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import tn.uma.boutiti.bouzidi.ing.projet.dto.LabelDTO;
 import tn.uma.boutiti.bouzidi.ing.projet.services.LabelService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/labels")
+//@RequestMapping("/api/labels")
 @CrossOrigin(origins = "http://localhost:3000")
+@SecurityRequirement(name = "bearer-token")
 public class LabelController {
 
     @Autowired
     private LabelService labelService;
 
 
-    @PostMapping
+    @PostMapping("/api/labels")
     public ResponseEntity<LabelDTO> create(@RequestBody LabelDTO labelDTO) {
         LabelDTO label = labelService.save(labelDTO);
         return ResponseEntity.ok().body(label);
     }
 
-    @GetMapping
+    @GetMapping("/api/user/labels")
     public ResponseEntity<Page<LabelDTO>> findAll(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
@@ -40,13 +43,13 @@ public class LabelController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/api/labels/{id}")
     public ResponseEntity<LabelDTO> findOne(@PathVariable Long id) {
         LabelDTO label = labelService.findOne(id);
         return ResponseEntity.ok().body(label);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/api/labels	/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         labelService.delete(id);
         return ResponseEntity.ok().build();

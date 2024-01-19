@@ -21,6 +21,7 @@ import tn.uma.boutiti.bouzidi.ing.projet.services.AuthenticationService;
 @RequestMapping("/api/auth")
 @CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
+
 public class AuthenticationController {
 
     
